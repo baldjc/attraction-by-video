@@ -329,16 +329,23 @@ export function WebinarRegistration() {
             flexDirection: 'column',
             gap: '20px',
           }}>
+            <h3 style={{
+              fontFamily: "'Cabinet Grotesk', sans-serif",
+              fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 700,
+              lineHeight: 1.35, letterSpacing: '-0.01em',
+              color: '#111827', margin: 0,
+            }}>
+              If you're a business owner who has been struggling to get consistent, quality clients — you're not alone.
+            </h3>
             {[
-              'If you\'re a business owner who has been struggling to get consistent, quality clients — you\'re not alone.',
               'The traditional marketing methods that used to work are becoming less effective and more expensive every day. Meanwhile, your competition is finding new ways to reach clients you\'ve been trying to attract.',
               'The good news? There\'s a better way. One that builds trust before you ever say a word, positions you as the expert in your market, and works 24/7 — even while you sleep.',
               'This free masterclass will show you exactly how to build that system using YouTube.',
             ].map((p, i) => (
               <p key={i} style={{
                 fontSize: '17px', lineHeight: 1.8, margin: 0,
-                color: i === 3 ? '#111827' : '#4b5563',
-                fontWeight: i === 3 ? 700 : 400,
+                color: i === 2 ? '#111827' : '#4b5563',
+                fontWeight: i === 2 ? 700 : 400,
               }}>{p}</p>
             ))}
           </div>
