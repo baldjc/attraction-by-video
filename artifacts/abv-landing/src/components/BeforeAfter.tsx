@@ -8,9 +8,9 @@ const beforeVideos = [
 ];
 
 const afterVideos = [
-  { title: 'Calgary Real Estate Market Update - January 2026', views: '20K', ago: '3 months ago', duration: '24:12', hot: true, thumbnail: 'https://img.youtube.com/vi/CLN9zktEIjw/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=CLN9zktEIjw' },
-  { title: 'Something Very Strange is Happening in the Calgary Real Estate Market!', views: '18K', ago: '4 months ago', duration: '19:47', thumbnail: 'https://img.youtube.com/vi/kUT5Zffa7wY/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=kUT5Zffa7wY' },
-  { title: 'Calgary Home Sellers Are LOSING ALL THEIR POWER', views: '13K', ago: '5 months ago', duration: '17:22', thumbnail: 'https://img.youtube.com/vi/2NAYwG-qGEQ/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=2NAYwG-qGEQ' },
+  { title: 'Do NOT Buy a New Home in Calgary Right Now (HERE\'S WHY)', views: '111K', ago: '1 year ago', duration: '22:51', hot: true, thumbnail: 'https://img.youtube.com/vi/ySVsJUAjNQk/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=ySVsJUAjNQk' },
+  { title: 'Calgary Real Estate Market Update - May 2025', views: '25K', ago: '10 months ago', duration: '22:05', thumbnail: 'https://img.youtube.com/vi/QbcBBKL9vyU/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=QbcBBKL9vyU' },
+  { title: 'Avoid Being Scammed by Movers (5 Red Flags & Insider Tips)', views: '13K', ago: '11 months ago', duration: '10:45', thumbnail: 'https://img.youtube.com/vi/mYti25UU8yU/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=mYti25UU8yU' },
 ];
 
 function VideoRow({ title, views, ago, duration, hot = false, variant, thumbnail, url }: {
