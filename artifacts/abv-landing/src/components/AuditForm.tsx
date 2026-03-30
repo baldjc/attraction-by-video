@@ -45,8 +45,7 @@ export function AuditForm() {
     const params = new URLSearchParams(window.location.search);
 
     try {
-      /* TODO: Replace with your GHL webhook endpoint */
-      const GHL_WEBHOOK_URL = 'GHL_WEBHOOK_URL_HERE';
+      const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/vEIiKAjpBkCDrabeDre7/webhook-trigger/09f67f89-b6c3-4d2f-a66b-36936c8aad46';
 
       const response = await fetch(GHL_WEBHOOK_URL, {
         method: 'POST',
@@ -71,13 +70,8 @@ export function AuditForm() {
         setSubmitting(false);
       }
     } catch {
-      /* GHL webhook not yet configured — redirect anyway in dev */
-      if (GHL_WEBHOOK_URL === 'GHL_WEBHOOK_URL_HERE') {
-        window.location.href = '/thank-you';
-      } else {
-        setError('Something went wrong. Please try again.');
-        setSubmitting(false);
-      }
+      setError('Something went wrong. Please try again.');
+      setSubmitting(false);
     }
   };
 
