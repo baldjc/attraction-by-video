@@ -43,7 +43,7 @@ export function AboutJared() {
                 { stat: '$80K/month', desc: 'generated from YouTube leads' },
                 { stat: '$3,996,258+ GCI', desc: 'from YouTube over 4 years' },
                 { stat: '16 years', desc: 'on video — started long before most agents knew YouTube was an option' },
-                { stat: "Trained by Mr. Beast's advisor", desc: 'learned from the best in the YouTube world' },
+                { stat: "Trained by Mr. Beast & Alex Hormozi's advisor", desc: 'learned from the best in the YouTube world' },
                 { stat: '4.5M views', desc: '296.4K watch time hours, 21K+ subscribers' },
                 { stat: '242+ weeks', desc: 'of consecutive publishing — never missed a week' },
                 { stat: '230+ leads', desc: 'from one video in 2 days' }
