@@ -147,24 +147,22 @@ export function Testimonials() {
               transitionDelay: '0.3s',
               background: 'var(--bg-dark)',
               borderRadius: '16px',
-              padding: '40px 48px',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '32px',
-              alignItems: 'center',
+              overflow: 'hidden',
             }}
           >
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(40px, 5vw, 60px)', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>$171M+</div>
-              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>in volume sold from Jared's YouTube channel since 2022</div>
-            </div>
-            <div style={{ textAlign: 'center', borderLeft: '1px solid rgba(255,255,255,0.08)', borderRight: '1px solid rgba(255,255,255,0.08)', padding: '0 32px' }}>
-              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(40px, 5vw, 60px)', color: '#fff', lineHeight: 1, marginBottom: '8px' }}>$4M+</div>
-              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>in GCI generated from YouTube leads across the program</div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(40px, 5vw, 60px)', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>200+</div>
-              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>leads in a couple of weeks — Paul Wolfert</div>
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ alignItems: 'center' }}>
+              <div className="stat-cell" style={{ textAlign: 'center', padding: '32px 24px' }}>
+                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 5vw, 60px)', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>$171M+</div>
+                <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>in volume sold from Jared's YouTube channel since 2022</div>
+              </div>
+              <div className="stat-cell" style={{ textAlign: 'center', padding: '32px 24px' }}>
+                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 5vw, 60px)', color: '#fff', lineHeight: 1, marginBottom: '8px' }}>$4M+</div>
+                <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>in GCI generated from YouTube leads across the program</div>
+              </div>
+              <div className="stat-cell" style={{ textAlign: 'center', padding: '32px 24px' }}>
+                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(36px, 5vw, 60px)', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>200+</div>
+                <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>leads in a couple of weeks — Paul Wolfert</div>
+              </div>
             </div>
           </div>
 

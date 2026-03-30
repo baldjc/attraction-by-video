@@ -235,3 +235,19 @@
     margin-bottom: 16px;
   }
 }
+
+.stat-cell {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.stat-cell:last-child {
+  border-bottom: none;
+}
+@media (min-width: 768px) {
+  .stat-cell {
+    border-bottom: none;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-cell:last-child {
+    border-right: none;
+  }
+}
