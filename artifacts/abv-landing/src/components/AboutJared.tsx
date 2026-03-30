@@ -12,19 +12,11 @@ export function AboutJared() {
           {/* LEFT: Photo */}
           <div className="order-2 md:order-1">
             <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
-              <div style={{
-                background: 'linear-gradient(135deg, #1A1A1A, #333333)',
-                aspectRatio: '3/4',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'rgba(255,255,255,0.2)',
-                fontFamily: "'Cabinet Grotesk', sans-serif",
-                fontWeight: 900,
-                fontSize: '72px'
-              }}>
-                JC
-              </div>
+              <img
+                src="/images/jared-headshot.png"
+                alt="Jared Chamberlain"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', aspectRatio: '3/4' }}
+              />
             </div>
             <div style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', marginTop: '12px' }}>
               Jared Chamberlain, Founder
