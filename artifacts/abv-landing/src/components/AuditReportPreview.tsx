@@ -208,7 +208,7 @@ export function AuditReportPreview() {
             Get Your Free Attraction Audit
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
-          <div style={{ marginTop: '12px', fontSize: '13px', color: 'rgba(255,255,255,0.4)' }}>Free · No credit card · Delivered within 24 hours</div>
+          <div style={{ marginTop: '12px', fontSize: '13px', color: 'rgba(255,255,255,0.4)' }}>Free · No credit card · 1-1 Call Booked to Review Your Audit</div>
         </div>
 
       </div>
