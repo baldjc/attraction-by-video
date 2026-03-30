@@ -9,64 +9,48 @@ export function Nav() {
       zIndex: 100,
       backdropFilter: 'blur(20px)',
       WebkitBackdropFilter: 'blur(20px)',
-      background: 'rgba(250,250,248,0.85)',
+      background: 'rgba(250,250,248,0.90)',
       borderBottom: '1px solid var(--border)',
-      padding: '14px 0',
+      padding: '12px 0',
     }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '16px' }}>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
 
-        {/* Left: nav links */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#platform" style={{
-            fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)',
-            textTransform: 'uppercase', letterSpacing: '0.02em', textDecoration: 'none', transition: 'color 0.2s ease',
-          }}
-          onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
-          onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
-            Platform
-          </a>
-          <a href="#services" style={{
-            fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)',
-            textTransform: 'uppercase', letterSpacing: '0.02em', textDecoration: 'none', transition: 'color 0.2s ease',
-          }}
-          onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
-          onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
-            Services
-          </a>
-          <a href="#proof" style={{
-            fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)',
-            textTransform: 'uppercase', letterSpacing: '0.02em', textDecoration: 'none', transition: 'color 0.2s ease',
-          }}
-          onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
-          onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
-            Results
-          </a>
-          <a href="#audit-info" style={{
-            fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)',
-            textTransform: 'uppercase', letterSpacing: '0.02em', textDecoration: 'none', transition: 'color 0.2s ease',
-          }}
-          onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
-          onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
-            Audit
-          </a>
-        </div>
-
-        {/* Center: wordmark only, bigger */}
-        <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none' }}>
+        {/* Left: wordmark */}
+        <a href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
           <img
             src="/images/abv-wordmark.png"
             alt="Attraction by Video"
-            style={{ height: '60px', width: 'auto' }}
+            style={{ height: '52px', width: 'auto' }}
           />
         </a>
 
-        {/* Right: members login + CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '20px' }}>
+        {/* Center: nav links — hidden on mobile */}
+        <div className="hidden md:flex items-center gap-8" style={{ flex: 1, justifyContent: 'center' }}>
+          {[
+            { href: '#platform', label: 'Platform' },
+            { href: '#services', label: 'Services' },
+            { href: '#proof',    label: 'Results' },
+            { href: '#audit-info', label: 'Audit' },
+          ].map(({ href, label }) => (
+            <a key={label} href={href} style={{
+              fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)',
+              textTransform: 'uppercase', letterSpacing: '0.02em',
+              textDecoration: 'none', transition: 'color 0.2s ease',
+            }}
+            onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+            onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
+              {label}
+            </a>
+          ))}
+        </div>
+
+        {/* Right: Members Login + CTA */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
+          {/* Members Login — always visible, compact on mobile */}
           <a
             href="https://members.attractionbyvideo.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline"
             style={{
               fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)',
               textDecoration: 'none', transition: 'color 0.2s ease', whiteSpace: 'nowrap',
@@ -74,12 +58,14 @@ export function Nav() {
             onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
             onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
-            Members Login
+            <span className="hidden sm:inline">Members </span>Login
           </a>
+
+          {/* CTA button */}
           <a href="#audit" style={{
             background: '#1A1A1A', color: '#FFFFFF', borderRadius: '9999px',
-            padding: '10px 24px', fontSize: '13px', fontWeight: 600,
-            textTransform: 'uppercase', letterSpacing: '0.02em',
+            padding: '10px 20px', fontSize: '12px', fontWeight: 600,
+            textTransform: 'uppercase', letterSpacing: '0.04em',
             transition: 'all 0.3s var(--ease-out-expo)', textDecoration: 'none',
             display: 'inline-block', whiteSpace: 'nowrap',
           }}
@@ -91,7 +77,7 @@ export function Nav() {
             e.currentTarget.style.transform = 'translateY(0)';
             e.currentTarget.style.boxShadow = 'none';
           }}>
-            Get Your Free Audit
+            <span className="hidden sm:inline">Get Your Free </span>Audit
           </a>
         </div>
 
