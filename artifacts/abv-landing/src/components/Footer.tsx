@@ -7,7 +7,7 @@ export function Footer() {
         <img
           src="/images/abv-wordmark.png"
           alt="Attraction by Video"
-          style={{ height: '28px', width: 'auto', marginBottom: '20px', filter: 'brightness(0) invert(1)', opacity: 0.7 }}
+          style={{ height: '52px', width: 'auto', marginBottom: '24px', display: 'block', margin: '0 auto 24px', filter: 'brightness(0) invert(1)', opacity: 0.85 }}
         />
         <p style={{ marginBottom: '16px' }}>Built for real estate agents who want to attract, not chase.</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '24px' }}>
