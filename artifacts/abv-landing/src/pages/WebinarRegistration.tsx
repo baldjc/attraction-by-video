@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Nav } from '../components/Nav';
 import { Footer } from '../components/Footer';
+import { Testimonials } from '../components/Testimonials';
 import { RegistrationModal } from '../components/RegistrationModal';
 import { getSiteConfig, SITE_CONFIG_DEFAULTS, SiteConfig } from '../lib/site-config';
 
@@ -594,7 +595,10 @@ export function WebinarRegistration() {
         </div>
       </section>
 
-      {/* ── 8. FOOTER ── */}
+      {/* ── 8. TESTIMONIALS ── */}
+      <Testimonials />
+
+      {/* ── 9. FOOTER ── */}
       <Footer />
 
       <style>{`
