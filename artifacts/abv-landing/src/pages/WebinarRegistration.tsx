@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Nav } from '../components/Nav';
 import { Footer } from '../components/Footer';
 import { Testimonials } from '../components/Testimonials';
-import { BeforeAfter } from '../components/BeforeAfter';
 import { RegistrationModal } from '../components/RegistrationModal';
 import { getSiteConfig, SITE_CONFIG_DEFAULTS, SiteConfig } from '../lib/site-config';
 
@@ -84,10 +83,25 @@ export function WebinarRegistration() {
   const about = useIntersect();
   const hardway = useIntersect();
   const close = useIntersect();
+  const [viewCount, setViewCount] = useState(0);
 
   useEffect(() => {
     getSiteConfig().then(setConfig);
   }, []);
+
+  useEffect(() => {
+    if (!close.visible) return;
+    let current = 0;
+    const target = 821429;
+    const steps = 60;
+    const inc = target / steps;
+    const timer = setInterval(() => {
+      current += inc;
+      if (current >= target) { setViewCount(target); clearInterval(timer); }
+      else setViewCount(Math.floor(current));
+    }, 2000 / steps);
+    return () => clearInterval(timer);
+  }, [close.visible]);
 
   const wc = config.webinar;
   const openModal = () => setModalOpen(true);
@@ -544,25 +558,64 @@ export function WebinarRegistration() {
           transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1)',
         }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* After thumbnails — social proof */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <p style={{
-                fontSize: '11px', fontWeight: 700, textTransform: 'uppercase',
-                letterSpacing: '0.12em', color: COPPER, margin: '0 0 4px',
-              }}>Real Results From Real Agents</p>
-              {['after-1.png', 'after-2.png', 'after-3.png'].map((file, i) => (
-                <img
-                  key={i}
-                  src={`/images/thumbnails/${file}`}
-                  alt={`YouTube result ${i + 1}`}
-                  draggable={false}
-                  style={{
-                    width: '100%', borderRadius: '12px', display: 'block',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
-                    pointerEvents: 'none', userSelect: 'none',
-                  }}
-                />
-              ))}
+            {/* After panel — Jared's real results */}
+            <div style={{
+              background: 'rgba(61,195,255,0.06)',
+              border: '1px solid rgba(61,195,255,0.2)',
+              borderRadius: '20px',
+              padding: '32px',
+            }}>
+              {/* Header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3dc3ff' }} />
+                <span style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#3dc3ff' }}>
+                  With the Attraction System
+                </span>
+              </div>
+              {/* Animated counter */}
+              <div style={{ marginBottom: '4px' }}>
+                <span style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: '#fff', lineHeight: 1 }}>
+                  {viewCount.toLocaleString()}
+                </span>
+              </div>
+              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', marginBottom: '24px' }}>views in the past 365 days</div>
+              {/* Video rows */}
+              <div style={{ borderTop: '1px solid rgba(61,195,255,0.1)', paddingTop: '4px' }}>
+                {[
+                  { title: "Do NOT Buy a New Home in Calgary Right Now (HERE'S WHY)", views: '111K', ago: '1 year ago', duration: '22:51', hot: true, thumb: 'https://img.youtube.com/vi/ySVsJUAjNQk/maxresdefault.jpg' },
+                  { title: 'Calgary Real Estate Market Update - May 2025', views: '25K', ago: '10 months ago', duration: '22:05', thumb: 'https://img.youtube.com/vi/QbcBBKL9vyU/maxresdefault.jpg' },
+                  { title: 'Something Very Strange is Happening in the Calgary Real Estate Market!', views: '18K', ago: '4 months ago', duration: '19:47', thumb: 'https://img.youtube.com/vi/kUT5Zffa7wY/maxresdefault.jpg' },
+                ].map((v, i) => (
+                  <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '12px 0', borderBottom: '1px solid rgba(61,195,255,0.08)' }}>
+                    <div style={{ width: '120px', height: '68px', borderRadius: '8px', flexShrink: 0, border: '1px solid rgba(61,195,255,0.2)', position: 'relative', overflow: 'hidden', background: 'rgba(61,195,255,0.1)' }}>
+                      <img src={v.thumb} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', borderRadius: '5px' }} />
+                      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(61,195,255,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1 }}>
+                        <div style={{ width: 0, height: 0, borderTop: '4px solid transparent', borderBottom: '4px solid transparent', borderLeft: '6px solid #3dc3ff', marginLeft: '2px' }} />
+                      </div>
+                      <span style={{ position: 'absolute', bottom: '4px', right: '4px', fontSize: '9px', fontWeight: 600, background: 'rgba(0,0,0,0.7)', color: '#fff', padding: '1px 4px', borderRadius: '3px', zIndex: 1 }}>{v.duration}</span>
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '12px', fontWeight: 500, color: 'rgba(255,255,255,0.85)', lineHeight: 1.4, marginBottom: '4px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{v.title}</div>
+                      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                        {v.hot && <span style={{ fontSize: '9px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', background: 'rgba(255,0,51,0.2)', color: '#ff0033', padding: '1px 6px', borderRadius: '3px' }}>🔥 Top</span>}
+                        <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>{v.views} views · {v.ago}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* Footer text */}
+              <div style={{ marginTop: '20px', fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>
+                Attraction system applied. No ad spend on content. Leads rolling in from search every week.
+              </div>
+              {/* $44M badge */}
+              <div style={{ marginTop: '16px', padding: '14px 18px', background: 'rgba(61,195,255,0.1)', border: '1px solid rgba(61,195,255,0.25)', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <span style={{ fontSize: '20px' }}>💰</span>
+                <div>
+                  <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontSize: '18px', color: '#fff', lineHeight: 1.1 }}>$44M in Volume Sold</div>
+                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', marginTop: '2px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>from YouTube leads only · 2025</div>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -596,13 +649,10 @@ export function WebinarRegistration() {
         </div>
       </section>
 
-      {/* ── 8. BEFORE / AFTER ── */}
-      <BeforeAfter />
-
-      {/* ── 9. TESTIMONIALS ── */}
+      {/* ── 8. TESTIMONIALS ── */}
       <Testimonials />
 
-      {/* ── 10. FOOTER ── */}
+      {/* ── 9. FOOTER ── */}
       <Footer />
 
       <style>{`
