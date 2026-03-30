@@ -536,13 +536,9 @@ export function WebinarRegistration() {
       </section>
 
       {/* ── 6. THE HARD WAY ── */}
-      <section style={{ background: '#0d0d0d', padding: 'clamp(80px,8vw,120px) 24px', position: 'relative', overflow: 'hidden' }}>
-        {/* Dot grid */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        {/* Copper glow — center */}
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '800px', height: '500px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(211,117,61,0.13) 0%, transparent 65%)' }} />
-        {/* Azure glow — top right */}
-        <div style={{ position: 'absolute', top: '-100px', right: '-80px', width: '500px', height: '380px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(61,195,255,0.07) 0%, transparent 65%)' }} />
+      <section style={{ background: '#EEF1F6', padding: 'clamp(80px,8vw,120px) 24px', position: 'relative', overflow: 'hidden' }}>
+        {/* Subtle copper glow — center */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '800px', height: '500px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(211,117,61,0.07) 0%, transparent 65%)' }} />
         <div ref={hardway.ref} className="container" style={{
           maxWidth: '900px',
           opacity: hardway.visible ? 1 : 0,
@@ -556,9 +552,9 @@ export function WebinarRegistration() {
             lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '8px',
           }}>
             <span style={{ color: COPPER }}>You Can Do</span>{' '}
-            <span style={{ color: '#fff' }}>It the Hard Way...</span>
+            <span style={{ color: '#111827' }}>It the Hard Way...</span>
           </h2>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.5)', marginBottom: '48px', fontWeight: 600 }}>
+          <p style={{ fontSize: '18px', color: '#6b7280', marginBottom: '48px', fontWeight: 600 }}>
             The Hard Way (Don't Do This!)
           </p>
 
@@ -571,6 +567,7 @@ export function WebinarRegistration() {
               <div key={i} style={{
                 background: '#fff', borderRadius: '20px', padding: '32px',
                 textAlign: 'left', position: 'relative',
+                boxShadow: '0 2px 16px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04)',
               }}>
                 <div style={{
                   width: '36px', height: '36px', borderRadius: '50%',
@@ -587,7 +584,7 @@ export function WebinarRegistration() {
           </div>
 
           <p style={{
-            fontSize: '18px', color: '#fff', fontWeight: 600, marginBottom: '32px',
+            fontSize: '18px', color: '#111827', fontWeight: 600, marginBottom: '32px',
           }}>
             Want the easy way? Sign up for the masterclass!
           </p>
