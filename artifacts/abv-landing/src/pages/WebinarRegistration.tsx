@@ -95,12 +95,36 @@ export function WebinarRegistration() {
       {modalOpen && <RegistrationModal config={wc} onClose={() => setModalOpen(false)} />}
 
       {/* ── 1. HERO ── */}
-      <section style={{ background: '#1A1A1A', padding: 'clamp(120px,12vw,180px) 24px clamp(80px,8vw,120px)' }}>
+      <section style={{ background: '#0d0d0d', padding: 'clamp(120px,12vw,180px) 24px clamp(80px,8vw,120px)', position: 'relative', overflow: 'hidden' }}>
+        {/* Dot grid */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
+          backgroundImage: 'radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }} />
+        {/* Copper glow — upper center */}
+        <div style={{
+          position: 'absolute', top: '-180px', left: '50%', transform: 'translateX(-50%)',
+          width: '1000px', height: '640px', zIndex: 0, pointerEvents: 'none',
+          background: 'radial-gradient(ellipse, rgba(211,117,61,0.22) 0%, transparent 68%)',
+        }} />
+        {/* Azure glow — lower left */}
+        <div style={{
+          position: 'absolute', bottom: '-120px', left: '-80px',
+          width: '560px', height: '420px', zIndex: 0, pointerEvents: 'none',
+          background: 'radial-gradient(ellipse, rgba(61,195,255,0.09) 0%, transparent 65%)',
+        }} />
+        {/* Subtle vignette edge */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
+          background: 'radial-gradient(ellipse 120% 100% at 50% 50%, transparent 50%, rgba(0,0,0,0.5) 100%)',
+        }} />
         <div ref={hero.ref} className="container" style={{
           maxWidth: '860px', textAlign: 'center',
           opacity: hero.visible ? 1 : 0,
           transform: hero.visible ? 'none' : 'translateY(32px)',
           transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1)',
+          position: 'relative', zIndex: 1,
         }}>
           <div style={{
             display: 'inline-block', fontSize: '12px', fontWeight: 600,
@@ -268,12 +292,19 @@ export function WebinarRegistration() {
       </section>
 
       {/* ── 4. WHAT YOU'LL DISCOVER ── */}
-      <section style={{ background: '#1A1A1A', padding: 'clamp(80px,8vw,120px) 24px' }}>
+      <section style={{ background: '#0d0d0d', padding: 'clamp(80px,8vw,120px) 24px', position: 'relative', overflow: 'hidden' }}>
+        {/* Dot grid */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        {/* Azure glow — top left */}
+        <div style={{ position: 'absolute', top: '-160px', left: '-100px', width: '700px', height: '500px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(61,195,255,0.10) 0%, transparent 65%)' }} />
+        {/* Copper glow — bottom right */}
+        <div style={{ position: 'absolute', bottom: '-140px', right: '-60px', width: '600px', height: '440px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(211,117,61,0.12) 0%, transparent 65%)' }} />
         <div ref={discover.ref} className="container" style={{
           maxWidth: '1100px',
           opacity: discover.visible ? 1 : 0,
           transform: discover.visible ? 'none' : 'translateY(32px)',
           transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1)',
+          position: 'relative', zIndex: 1,
         }}>
           <h2 style={{
             fontFamily: "'Cabinet Grotesk', sans-serif",
@@ -388,13 +419,19 @@ export function WebinarRegistration() {
       </section>
 
       {/* ── 6. THE HARD WAY ── */}
-      <section style={{ background: '#1A1A1A', padding: 'clamp(80px,8vw,120px) 24px' }}>
+      <section style={{ background: '#0d0d0d', padding: 'clamp(80px,8vw,120px) 24px', position: 'relative', overflow: 'hidden' }}>
+        {/* Dot grid */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        {/* Copper glow — center */}
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '800px', height: '500px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(211,117,61,0.13) 0%, transparent 65%)' }} />
+        {/* Azure glow — top right */}
+        <div style={{ position: 'absolute', top: '-100px', right: '-80px', width: '500px', height: '380px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(61,195,255,0.07) 0%, transparent 65%)' }} />
         <div ref={hardway.ref} className="container" style={{
           maxWidth: '900px',
           opacity: hardway.visible ? 1 : 0,
           transform: hardway.visible ? 'none' : 'translateY(32px)',
           transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1)',
-          textAlign: 'center',
+          textAlign: 'center', position: 'relative', zIndex: 1,
         }}>
           <h2 style={{
             fontFamily: "'Cabinet Grotesk', sans-serif",
