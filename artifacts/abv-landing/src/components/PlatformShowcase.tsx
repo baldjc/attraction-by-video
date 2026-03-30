@@ -211,11 +211,7 @@ export function PlatformShowcase() {
             </div>
 
             {/* Tool cards grid */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '12px',
-            }}>
+            <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: '12px' }}>
               {[
                 { emoji: '🎯', name: 'Avatar Architect' },
                 { emoji: '🚀', name: 'Content Engine' },
