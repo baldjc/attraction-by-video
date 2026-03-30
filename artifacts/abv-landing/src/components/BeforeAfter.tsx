@@ -251,7 +251,7 @@ export function BeforeAfter() {
           marginTop: '56px',
         }}>
           {[
-            { stat: '68%', label: 'of buyers use YouTube to research before making a decision' },
+            { stat: '68%', label: 'of everyone in your city uses YouTube to help make large financial decisions' },
             { stat: '50%', label: 'of all purchases now involve video at some point in the journey' },
             { stat: '34%', label: 'was this number just 4 years ago — the gap is widening fast' },
           ].map(({ stat, label }, i) => (
