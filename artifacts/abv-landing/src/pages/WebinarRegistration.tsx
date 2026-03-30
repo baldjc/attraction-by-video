@@ -266,9 +266,10 @@ export function WebinarRegistration() {
             marginTop: '56px',
             borderTop: '1px solid #e5e7eb',
             paddingTop: '48px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '28px 48px',
+            maxWidth: '780px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
           }}>
             {[
               'If you\'re a business owner who has been struggling to get consistent, quality clients — you\'re not alone.',
@@ -278,7 +279,7 @@ export function WebinarRegistration() {
             ].map((p, i) => (
               <p key={i} style={{
                 fontSize: '17px', lineHeight: 1.8, margin: 0,
-                color: i === 3 ? '#111827' : '#374151',
+                color: i === 3 ? '#111827' : '#4b5563',
                 fontWeight: i === 3 ? 700 : 400,
               }}>{p}</p>
             ))}
