@@ -237,6 +237,22 @@ export function BeforeAfter() {
             <div style={{ marginTop: '20px', fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>
               Attraction system applied. No ad spend on content. Leads rolling in from search every week.
             </div>
+            <div style={{
+              marginTop: '16px',
+              padding: '14px 18px',
+              background: 'rgba(61,195,255,0.1)',
+              border: '1px solid rgba(61,195,255,0.25)',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+            }}>
+              <span style={{ fontSize: '20px' }}>💰</span>
+              <div>
+                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontSize: '18px', color: '#fff', lineHeight: 1.1 }}>$44M in Volume Sold</div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', marginTop: '2px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>from YouTube leads only · 2025</div>
+              </div>
+            </div>
           </div>
         </div>
 
