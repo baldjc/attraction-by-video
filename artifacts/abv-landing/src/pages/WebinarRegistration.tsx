@@ -122,7 +122,7 @@ export function WebinarRegistration() {
         <div style={{
           position: 'absolute', top: '-180px', left: '50%', transform: 'translateX(-50%)',
           width: '1000px', height: '640px', zIndex: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse, rgba(255,0,51,0.22) 0%, transparent 68%)',
+          background: 'radial-gradient(ellipse, rgba(255,0,51,0.09) 0%, transparent 68%)',
         }} />
         {/* Azure glow — lower left */}
         <div style={{
@@ -600,7 +600,7 @@ export function WebinarRegistration() {
         {/* Dot grid */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         {/* Crimson glow — upper right */}
-        <div style={{ position: 'absolute', top: '-100px', right: '-80px', width: '500px', height: '380px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(255,0,51,0.12) 0%, transparent 65%)' }} />
+        <div style={{ position: 'absolute', top: '-100px', right: '-80px', width: '500px', height: '380px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(255,0,51,0.07) 0%, transparent 65%)' }} />
         {/* Azure glow — lower left */}
         <div style={{ position: 'absolute', bottom: '-100px', left: '-80px', width: '500px', height: '380px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(61,195,255,0.08) 0%, transparent 65%)' }} />
         <div ref={close.ref} className="container" style={{
