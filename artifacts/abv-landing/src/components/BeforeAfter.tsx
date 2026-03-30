@@ -8,22 +8,24 @@ const beforeVideos = [
 ];
 
 const afterVideos = [
-  { title: 'Do NOT Buy a New Home in Calgary Right Now (HERE\'S WHY)', views: '79K', ago: '1 month ago', duration: '22:51', hot: true, thumbnail: '/images/thumbnails/after-1.png' },
-  { title: 'Calgary Real Estate Market Update – May 2025', views: '22K', ago: '2 weeks ago', duration: '22:05', thumbnail: '/images/thumbnails/after-2.png' },
-  { title: 'Avoid Being Scammed by Movers (5 Red Flags & Insider Tips)', views: '9.5K', ago: '11 days ago', duration: '10:45', thumbnail: '/images/thumbnails/after-3.png' },
+  { title: 'Calgary Real Estate Market Update - January 2026', views: '20K', ago: '3 months ago', duration: '24:12', hot: true, thumbnail: 'https://img.youtube.com/vi/CLN9zktEIjw/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=CLN9zktEIjw' },
+  { title: 'Something Very Strange is Happening in the Calgary Real Estate Market!', views: '18K', ago: '4 months ago', duration: '19:47', thumbnail: 'https://img.youtube.com/vi/kUT5Zffa7wY/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=kUT5Zffa7wY' },
+  { title: 'Calgary Home Sellers Are LOSING ALL THEIR POWER', views: '13K', ago: '5 months ago', duration: '17:22', thumbnail: 'https://img.youtube.com/vi/2NAYwG-qGEQ/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=2NAYwG-qGEQ' },
 ];
 
-function VideoRow({ title, views, ago, duration, hot = false, variant, thumbnail }: {
-  title: string; views: string; ago: string; duration: string; hot?: boolean; variant: 'before' | 'after'; thumbnail?: string;
+function VideoRow({ title, views, ago, duration, hot = false, variant, thumbnail, url }: {
+  title: string; views: string; ago: string; duration: string; hot?: boolean; variant: 'before' | 'after'; thumbnail?: string; url?: string;
 }) {
   const isBefore = variant === 'before';
+  const Wrapper = url ? 'a' : 'div';
+  const wrapperProps = url ? { href: url, target: '_blank', rel: 'noopener noreferrer', style: { display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', textDecoration: 'none', cursor: 'pointer' } } : { style: { display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' } };
   return (
-    <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+    <Wrapper {...wrapperProps as any}>
       {/* Thumbnail */}
       <div style={{
-        width: '80px',
-        height: '48px',
-        borderRadius: '6px',
+        width: '120px',
+        height: '68px',
+        borderRadius: '8px',
         flexShrink: 0,
         border: isBefore ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(61,195,255,0.2)',
         display: 'flex',
@@ -84,7 +86,6 @@ function VideoRow({ title, views, ago, duration, hot = false, variant, thumbnail
           borderRadius: '3px',
           position: 'relative',
           zIndex: 1,
-          zIndex: 1,
         }}>{duration}</span>
       </div>
 
@@ -119,7 +120,7 @@ function VideoRow({ title, views, ago, duration, hot = false, variant, thumbnail
           </span>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
