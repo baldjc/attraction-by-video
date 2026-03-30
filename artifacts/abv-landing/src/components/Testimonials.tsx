@@ -10,7 +10,7 @@ const testimonials = [
     avatar: '/images/avatars/julie-roth.png',
   },
   {
-    quote: "Absolutely. If this continues the way I think it will, it'll change my life. Up to about 200 leads since March 8.",
+    quote: "If this continues the way I think it will, it'll change my life. Up to about 200 leads in a couple of weeks.",
     name: 'Paul Wolfert',
     initials: 'PW',
     role: 'Foundations Member',
@@ -184,7 +184,7 @@ export function Testimonials() {
             <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.08)' }} />
             <div>
               <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>200+</div>
-              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)' }}>leads generated since March 8 — Paul Wolfert</div>
+              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)' }}>leads generated in a couple of weeks — Paul Wolfert</div>
             </div>
           </div>
 
