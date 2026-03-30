@@ -142,44 +142,33 @@ export function PlatformShowcase() {
               </div>
             </div>
 
-            {/* Product screenshot in app chrome */}
+            {/* Tool cards grid */}
             <div style={{
-              borderRadius: '14px',
-              overflow: 'hidden',
-              border: '1px solid var(--border)',
-              boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '12px',
             }}>
-              {/* Browser chrome bar */}
-              <div style={{
-                background: '#f0ede8',
-                padding: '10px 16px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                borderBottom: '1px solid var(--border)',
-              }}>
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f56' }} />
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' }} />
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#27c93f' }} />
-                <div style={{
-                  marginLeft: '12px',
-                  background: '#fff',
-                  borderRadius: '6px',
-                  padding: '3px 12px',
-                  fontSize: '11px',
-                  color: 'var(--text-muted)',
-                  flex: 1,
-                  maxWidth: '280px',
+              {[
+                { emoji: '🎯', name: 'Avatar Architect' },
+                { emoji: '🚀', name: 'Content Engine' },
+                { emoji: '🔍', name: 'Title & Thumbnail Analyzer' },
+                { emoji: '🎬', name: 'ARC Script Builder' },
+                { emoji: '📋', name: 'Script Review' },
+                { emoji: '♻️', name: 'Repurpose Content' },
+              ].map((tool) => (
+                <div key={tool.name} style={{
+                  background: 'var(--bg-warm)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '12px',
+                  padding: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
                 }}>
-                  members.attractionbyvideo.com/tools
+                  <span style={{ fontSize: '22px', flexShrink: 0 }}>{tool.emoji}</span>
+                  <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.3 }}>{tool.name}</span>
                 </div>
-              </div>
-              {/* Screenshot */}
-              <img
-                src="/images/ai-tools.png"
-                alt="AI Tools inside the Attraction by Video platform"
-                style={{ width: '100%', display: 'block' }}
-              />
+              ))}
             </div>
           </div>
 
