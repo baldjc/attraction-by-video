@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useInView } from '../hooks/useInView';
 
 const beforeVideos = [
-  { title: 'SOLD: A Gorgeous Killarney Townhome – Calgary Real Estate', views: '64', ago: '12 years ago', duration: '2:35', thumbnail: '/images/thumbnails/before-1.png' },
-  { title: 'SOLD: A Beautiful Copperfield Family Home – Calgary Real Estate', views: '100', ago: '12 years ago', duration: '2:44', thumbnail: '/images/thumbnails/before-2.png' },
-  { title: '2611 17A Street SW | Homes by The Chamberlain Group', views: '128', ago: '12 years ago', duration: '2:01', thumbnail: '/images/thumbnails/before-3.png' },
+  { title: '318, 816 89 Ave SW | Homes by The Chamberlain Group', views: '113', ago: '13 years ago', duration: '2:42', thumbnail: 'https://img.youtube.com/vi/RudIAP6J5DM/hqdefault.jpg', url: 'https://www.youtube.com/watch?v=RudIAP6J5DM' },
+  { title: 'April 2010 Calgary Market Update', views: '438', ago: '15 years ago', duration: '3:19', thumbnail: 'https://img.youtube.com/vi/E5VeG_k6ojc/hqdefault.jpg', url: 'https://www.youtube.com/watch?v=E5VeG_k6ojc' },
+  { title: 'Chamberlain Group: Thinking about building a new home?', views: '84', ago: '13 years ago', duration: '6:05', thumbnail: 'https://img.youtube.com/vi/-WhNCqkohw8/maxresdefault.jpg', url: 'https://www.youtube.com/watch?v=-WhNCqkohw8' },
 ];
 
 const afterVideos = [
