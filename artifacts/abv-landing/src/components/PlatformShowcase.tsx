@@ -67,7 +67,7 @@ export function PlatformShowcase() {
             borderRadius: '24px',
             border: '1px solid var(--border)',
             padding: '36px',
-            transition: 'all 0.4s var(--ease-out-expo)'
+            transition: 'all 0.4s var(--ease-out-expo)',
           }}
           onMouseOver={(e) => {
             e.currentTarget.style.transform = 'translateY(-4px)';
@@ -77,37 +77,103 @@ export function PlatformShowcase() {
             e.currentTarget.style.transform = 'translateY(0)';
             e.currentTarget.style.boxShadow = 'none';
           }}>
-            <div style={{
-              width: '44px', height: '44px', borderRadius: '12px', background: '#F59E0B20',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', color: '#F59E0B'
-            }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            </div>
-            <h3 style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '22px', marginBottom: '12px', color: 'var(--text-primary)' }}>My Scores</h3>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>
-              A 16-principle scoring system that shows exactly where your channel stands — and what to fix first.
-            </p>
-            
-            {/* Mock UI */}
-            <div style={{ background: 'var(--bg-warm)', borderRadius: '12px', padding: '20px', border: '1px solid var(--border)' }}>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                <span style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '48px', color: 'var(--accent-azure)', lineHeight: 1 }}>{score.toFixed(1)}</span>
-                <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>/ 10</span>
-              </div>
-              <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px', marginTop: '8px' }}>Channel Health Score</div>
-              <div style={{ height: '6px', background: 'var(--border)', borderRadius: '3px', marginBottom: '20px', overflow: 'hidden' }}>
-                <div style={{ width: `${(score/10)*100}%`, height: '100%', background: 'linear-gradient(90deg, var(--accent-azure), #0099cc)', borderRadius: '3px', transition: 'width 0.5s ease-out' }}></div>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                {[
-                  { name: 'Consistency', s: '8.1' }, { name: 'Thumbnails', s: '6.4' },
-                  { name: 'SEO', s: '7.8' }, { name: 'Retention', s: '6.9' }
-                ].map(dim => (
-                  <div key={dim.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--border)' }}>
-                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>{dim.name}</span>
-                    <span style={{ fontSize: '12px', color: 'var(--accent-azure)', fontWeight: 600 }}>{dim.s}</span>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '28px', flexWrap: 'wrap' }}>
+
+              {/* Left: score UI */}
+              <div style={{ flex: '1 1 200px', minWidth: 0 }}>
+                <div style={{
+                  width: '44px', height: '44px', borderRadius: '12px', background: '#F59E0B20',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', color: '#F59E0B'
+                }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                </div>
+                <h3 style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '22px', marginBottom: '12px', color: 'var(--text-primary)' }}>My Scores</h3>
+                <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>
+                  A 16-principle scoring system that shows exactly where your channel stands — and what to fix first.
+                </p>
+                <div style={{ background: 'var(--bg-warm)', borderRadius: '12px', padding: '20px', border: '1px solid var(--border)' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                    <span style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '48px', color: 'var(--accent-azure)', lineHeight: 1 }}>{score.toFixed(1)}</span>
+                    <span style={{ fontSize: '16px', color: 'var(--text-muted)' }}>/ 10</span>
                   </div>
-                ))}
+                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px', marginTop: '8px' }}>Channel Health Score</div>
+                  <div style={{ height: '6px', background: 'var(--border)', borderRadius: '3px', marginBottom: '20px', overflow: 'hidden' }}>
+                    <div style={{ width: `${(score/10)*100}%`, height: '100%', background: 'linear-gradient(90deg, var(--accent-azure), #0099cc)', borderRadius: '3px', transition: 'width 0.5s ease-out' }}></div>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                    {[
+                      { name: 'Consistency', s: '8.1' }, { name: 'Thumbnails', s: '6.4' },
+                      { name: 'SEO', s: '7.8' }, { name: 'Retention', s: '6.9' }
+                    ].map(dim => (
+                      <div key={dim.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--border)' }}>
+                        <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>{dim.name}</span>
+                        <span style={{ fontSize: '12px', color: 'var(--accent-azure)', fontWeight: 600 }}>{dim.s}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: mini report preview */}
+              <div style={{ flex: '1 1 160px', minWidth: 0, position: 'relative', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', paddingTop: '8px' }}>
+                {/* Back page (rotated) */}
+                <div style={{
+                  position: 'absolute',
+                  top: '24px',
+                  right: '-8px',
+                  width: '150px',
+                  background: '#fff',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '10px',
+                  padding: '14px',
+                  transform: 'rotate(6deg)',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+                  zIndex: 0,
+                }}>
+                  {[['8.1','#3dc3ff'],['8.3','#3dc3ff'],['8.0','#3dc3ff'],['7.9','#f59e0b'],['7.8','#f59e0b'],['7.4','#f59e0b'],['7.6','#f59e0b'],['7.2','#ef4444']].map(([val, color], i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
+                      <div style={{ flex: 1, height: '4px', background: '#f3f4f6', borderRadius: '2px' }}>
+                        <div style={{ width: `${(parseFloat(val)/10)*100}%`, height: '100%', background: color, borderRadius: '2px' }} />
+                      </div>
+                      <span style={{ fontSize: '10px', fontWeight: 700, color, minWidth: '22px', textAlign: 'right' }}>{val}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Front page */}
+                <div style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  width: '160px',
+                  background: '#fff',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '12px',
+                  padding: '16px',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.10)',
+                  marginRight: '20px',
+                }}>
+                  <div style={{ fontSize: '7px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#9ca3af', marginBottom: '3px' }}>Attraction Audit Report</div>
+                  <div style={{ fontSize: '7px', color: '#9ca3af', marginBottom: '12px' }}>Channel: Jared Chamberlain</div>
+                  <div style={{ width: '28px', height: '28px', background: '#fef3c7', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', marginBottom: '8px' }}>⭐</div>
+                  <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '13px', color: '#111827', marginBottom: '4px' }}>My Scores</div>
+                  <div style={{ fontSize: '7px', color: '#6b7280', lineHeight: 1.5, marginBottom: '12px' }}>A 16-principle scoring system that shows exactly where your channel stands.</div>
+                  <div style={{ background: '#f3f4f6', borderRadius: '8px', padding: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '4px' }}>
+                      <span style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '22px', color: '#3dc3ff', lineHeight: 1 }}>7.2</span>
+                      <span style={{ fontSize: '9px', color: '#9ca3af' }}>/10</span>
+                    </div>
+                    <div style={{ fontSize: '7px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#9ca3af', marginBottom: '6px' }}>Channel Health</div>
+                    <div style={{ height: '3px', background: '#e5e7eb', borderRadius: '2px', marginBottom: '8px' }}>
+                      <div style={{ width: '72%', height: '100%', background: '#3dc3ff', borderRadius: '2px' }} />
+                    </div>
+                    {[['Consistency','8.1'],['Thumbnails','6.4']].map(([n,s]) => (
+                      <div key={n} style={{ display: 'flex', justifyContent: 'space-between', background: '#fff', padding: '4px 6px', borderRadius: '4px', marginBottom: '4px', border: '1px solid #e5e7eb' }}>
+                        <span style={{ fontSize: '8px', color: '#6b7280' }}>{n}</span>
+                        <span style={{ fontSize: '8px', color: '#3dc3ff', fontWeight: 700 }}>{s}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
