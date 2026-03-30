@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useInView } from '../hooks/useInView';
 
 const beforeVideos = [
-  { title: 'SOLD: A Gorgeous Killarney Townhome – Calgary Real Estate', views: '64', ago: '12 years ago', duration: '2:35' },
-  { title: 'SOLD: A Beautiful Copperfield Family Home – Calgary Real Estate', views: '100', ago: '12 years ago', duration: '2:44' },
-  { title: '2611 17A Street SW | Homes by The Chamberlain Group', views: '128', ago: '12 years ago', duration: '2:01' },
+  { title: 'SOLD: A Gorgeous Killarney Townhome – Calgary Real Estate', views: '64', ago: '12 years ago', duration: '2:35', thumbnail: '/images/thumbnails/before-1.png' },
+  { title: 'SOLD: A Beautiful Copperfield Family Home – Calgary Real Estate', views: '100', ago: '12 years ago', duration: '2:44', thumbnail: '/images/thumbnails/before-2.png' },
+  { title: '2611 17A Street SW | Homes by The Chamberlain Group', views: '128', ago: '12 years ago', duration: '2:01', thumbnail: '/images/thumbnails/before-3.png' },
 ];
 
 const afterVideos = [
-  { title: 'Do NOT Buy a New Home in Calgary Right Now (HERE\'S WHY)', views: '79K', ago: '1 month ago', duration: '22:51', hot: true },
-  { title: 'Calgary Real Estate Market Update – May 2025', views: '22K', ago: '2 weeks ago', duration: '22:05' },
-  { title: 'Avoid Being Scammed by Movers (5 Red Flags & Insider Tips)', views: '9.5K', ago: '11 days ago', duration: '10:45' },
+  { title: 'Do NOT Buy a New Home in Calgary Right Now (HERE\'S WHY)', views: '79K', ago: '1 month ago', duration: '22:51', hot: true, thumbnail: '/images/thumbnails/after-1.png' },
+  { title: 'Calgary Real Estate Market Update – May 2025', views: '22K', ago: '2 weeks ago', duration: '22:05', thumbnail: '/images/thumbnails/after-2.png' },
+  { title: 'Avoid Being Scammed by Movers (5 Red Flags & Insider Tips)', views: '9.5K', ago: '11 days ago', duration: '10:45', thumbnail: '/images/thumbnails/after-3.png' },
 ];
 
-function VideoRow({ title, views, ago, duration, hot = false, variant }: {
-  title: string; views: string; ago: string; duration: string; hot?: boolean; variant: 'before' | 'after';
+function VideoRow({ title, views, ago, duration, hot = false, variant, thumbnail }: {
+  title: string; views: string; ago: string; duration: string; hot?: boolean; variant: 'before' | 'after'; thumbnail?: string;
 }) {
   const isBefore = variant === 'before';
   return (
@@ -25,9 +25,6 @@ function VideoRow({ title, views, ago, duration, hot = false, variant }: {
         height: '48px',
         borderRadius: '6px',
         flexShrink: 0,
-        background: isBefore
-          ? 'linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03))'
-          : 'linear-gradient(135deg, rgba(61,195,255,0.15), rgba(0,80,120,0.3))',
         border: isBefore ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(61,195,255,0.2)',
         display: 'flex',
         alignItems: 'flex-end',
@@ -35,7 +32,24 @@ function VideoRow({ title, views, ago, duration, hot = false, variant }: {
         padding: '4px',
         position: 'relative',
         overflow: 'hidden',
+        background: isBefore
+          ? 'linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03))'
+          : 'linear-gradient(135deg, rgba(61,195,255,0.15), rgba(0,80,120,0.3))',
       }}>
+        {thumbnail && (
+          <img
+            src={thumbnail}
+            alt=""
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '5px',
+            }}
+          />
+        )}
         {/* Play icon hint */}
         <div style={{
           position: 'absolute',
@@ -45,17 +59,18 @@ function VideoRow({ title, views, ago, duration, hot = false, variant }: {
           width: '20px',
           height: '20px',
           borderRadius: '50%',
-          background: isBefore ? 'rgba(255,255,255,0.1)' : 'rgba(61,195,255,0.3)',
+          background: isBefore ? 'rgba(255,255,255,0.15)' : 'rgba(61,195,255,0.4)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          zIndex: 1,
         }}>
           <div style={{
             width: 0,
             height: 0,
             borderTop: '4px solid transparent',
             borderBottom: '4px solid transparent',
-            borderLeft: isBefore ? '6px solid rgba(255,255,255,0.3)' : '6px solid rgba(61,195,255,0.9)',
+            borderLeft: isBefore ? '6px solid rgba(255,255,255,0.5)' : '6px solid rgba(61,195,255,1)',
             marginLeft: '2px',
           }} />
         </div>
@@ -68,6 +83,7 @@ function VideoRow({ title, views, ago, duration, hot = false, variant }: {
           padding: '1px 4px',
           borderRadius: '3px',
           position: 'relative',
+          zIndex: 1,
           zIndex: 1,
         }}>{duration}</span>
       </div>
@@ -128,7 +144,7 @@ export function BeforeAfter() {
 
   return (
     <section id="results" style={{ background: 'var(--bg-dark)', color: '#fff', padding: '120px 0' }}>
-      <div className="container" ref={ref}>
+      <div className="container">
 
         {/* HEADER */}
         <div style={{ textAlign: 'center', marginBottom: '64px' }} className={`fade-up ${isVisible ? 'visible' : ''}`}>
@@ -145,12 +161,12 @@ export function BeforeAfter() {
             Same agent. Same market.<br />Different system.
           </h2>
           <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.4)', maxWidth: '480px', margin: '0 auto' }}>
-            This is Jared's actual channel. 12 videos each. The only thing that changed was the system.
+            This is Jared's actual channel. The only thing that changed was the system.
           </p>
         </div>
 
         {/* COMPARISON PANELS */}
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-5 fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
+        <div ref={ref} className={`grid grid-cols-1 md:grid-cols-2 gap-5 fade-up ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
 
           {/* BEFORE */}
           <div style={{
@@ -173,7 +189,7 @@ export function BeforeAfter() {
                 13,180
               </span>
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', marginBottom: '24px' }}>views across 12 videos</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', marginBottom: '24px' }}>views across 16 videos</div>
 
             {/* Video list */}
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '4px' }}>
@@ -239,7 +255,7 @@ export function BeforeAfter() {
             fontWeight: 900,
             fontSize: '28px',
             color: 'var(--accent-azure)',
-          }}>22× more views. Zero ad spend.</span>
+          }}>22× more views with zero cold ad spend.</span>
           <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.08)', maxWidth: '200px' }} />
         </div>
 
