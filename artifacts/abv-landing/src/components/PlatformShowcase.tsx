@@ -85,7 +85,7 @@ export function PlatformShowcase() {
             </div>
             <h3 style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '22px', marginBottom: '12px', color: 'var(--text-primary)' }}>My Scores</h3>
             <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>
-              A 16-dimension scoring system that shows exactly where your channel stands — and what to fix first.
+              A 16-principle scoring system that shows exactly where your channel stands — and what to fix first.
             </p>
             
             {/* Mock UI */}

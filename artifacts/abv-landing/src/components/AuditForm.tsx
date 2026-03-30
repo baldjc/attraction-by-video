@@ -131,7 +131,7 @@ export function AuditForm() {
 
             <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column' }}>
               {[
-                '16-dimension scoring system',
+                '16-principle scoring system',
                 'Personalised recommendations',
                 '48-hour turnaround',
                 '15-minute walkthrough call',

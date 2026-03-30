@@ -70,7 +70,7 @@ export function AuditReportPreview() {
             See exactly what you&apos;ll get.
           </h2>
           <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', maxWidth: '480px', margin: '0 auto', lineHeight: 1.7 }}>
-            Every free audit produces a real report. Scored across 16 dimensions. No fluff — just your actual numbers and what to fix first.
+            Every free audit produces a real report. Scored across 16 principles. No fluff — just your actual numbers and what to fix first.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export function AuditReportPreview() {
               {/* Page 2 header */}
               <div style={{ marginBottom: '28px' }}>
                 <div style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#9ca3af', marginBottom: '6px' }}>Attraction Audit Report · Page 2 of 3</div>
-                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '20px', color: '#111827' }}>16-Dimension Breakdown</div>
+                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '20px', color: '#111827' }}>16-Principle Breakdown</div>
               </div>
 
               {/* Dimensions grid */}
@@ -139,7 +139,7 @@ export function AuditReportPreview() {
               }}>⭐</div>
               <h3 style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '24px', color: '#111827', marginBottom: '8px' }}>My Scores</h3>
               <p style={{ fontSize: '14px', color: '#6b7280', lineHeight: 1.6, marginBottom: '28px' }}>
-                A 16-dimension scoring system that shows exactly where your channel stands — and what to fix first.
+                A 16-principle scoring system that shows exactly where your channel stands — and what to fix first.
               </p>
 
               {/* Score card — matching screenshot exactly */}
