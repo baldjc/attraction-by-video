@@ -264,11 +264,11 @@ export function WebinarRegistration() {
           {/* Full-width text below the grid */}
           <div style={{
             marginTop: '56px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
             borderTop: '1px solid #e5e7eb',
             paddingTop: '48px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '28px 48px',
           }}>
             {[
               'If you\'re a business owner who has been struggling to get consistent, quality clients — you\'re not alone.',
@@ -277,9 +277,9 @@ export function WebinarRegistration() {
               'This free masterclass will show you exactly how to build that system using YouTube.',
             ].map((p, i) => (
               <p key={i} style={{
-                fontSize: '17px', color: '#374151', lineHeight: 1.8,
-                margin: 0,
-                ...(i === 3 ? { fontWeight: 700, color: '#111827' } : {}),
+                fontSize: '17px', lineHeight: 1.8, margin: 0,
+                color: i === 3 ? '#111827' : '#374151',
+                fontWeight: i === 3 ? 700 : 400,
               }}>{p}</p>
             ))}
           </div>
