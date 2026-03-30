@@ -223,73 +223,99 @@ export function WebinarRegistration() {
             and Start Attracting Them
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Jared photo */}
-            <div style={{ position: 'relative' }}>
-              <div style={{
-                position: 'absolute', inset: 0,
-                borderRadius: '24px',
-                background: `linear-gradient(135deg, ${COPPER}30 0%, transparent 60%)`,
-                transform: 'translate(10px, 10px)',
-                zIndex: 0,
-              }} />
-              <img
-                src="/images/jared-headshot.png"
-                alt="Jared Chamberlain"
-                style={{
-                  width: '100%', borderRadius: '24px',
-                  display: 'block', position: 'relative', zIndex: 1,
-                  objectFit: 'cover', aspectRatio: '4/5',
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.15)',
-                }}
-              />
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-            {/* Questions */}
-            <div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '36px' }}>
-                {[
-                  "When was the last time you felt confident that your marketing was actually working?",
-                  "Are you tired of throwing money at ads that cost more every month?",
-                  "Frustrated with calling leads who don\u2019t know who you are, except they are the ones that signed up through your ads?",
-                  "Fed up with networking events that eat up your time but only connect you with one person at a time?",
-                ].map((q, i) => (
-                  <div key={i}
-                    style={{
-                      display: 'flex', gap: '20px', alignItems: 'flex-start',
-                      background: '#111827',
-                      borderRadius: '16px', padding: '22px 24px',
-                      borderLeft: `4px solid ${COPPER}`,
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
-                      transition: 'transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease, border-color 0.25s ease',
-                      cursor: 'default',
-                    }}
-                    onMouseOver={e => {
-                      const el = e.currentTarget;
-                      el.style.transform = 'translateY(-4px)';
-                      el.style.boxShadow = `0 12px 32px rgba(0,0,0,0.25), 0 0 0 1px ${COPPER}55`;
-                      el.style.borderLeftColor = '#e8925a';
-                    }}
-                    onMouseOut={e => {
-                      const el = e.currentTarget;
-                      el.style.transform = 'translateY(0)';
-                      el.style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)';
-                      el.style.borderLeftColor = COPPER;
-                    }}
-                  >
-                    <span style={{
-                      fontFamily: "'Cabinet Grotesk', sans-serif",
-                      fontWeight: 800, fontSize: '28px', color: COPPER,
-                      lineHeight: 1, flexShrink: 0, minWidth: '36px',
-                      letterSpacing: '-0.02em',
-                    }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <p style={{ fontSize: '16px', fontWeight: 500, color: '#f3f4f6', lineHeight: 1.6, margin: 0, paddingTop: '4px' }}>{q}</p>
-                  </div>
-                ))}
+            {/* Analytics card */}
+            <div style={{
+              background: '#0f1117', borderRadius: '20px',
+              border: '1px solid rgba(255,255,255,0.08)',
+              overflow: 'hidden',
+              boxShadow: '0 24px 60px rgba(0,0,0,0.18)',
+            }}>
+              {/* YouTube Studio header bar */}
+              <div style={{
+                padding: '14px 20px',
+                borderBottom: '1px solid rgba(255,255,255,0.07)',
+                display: 'flex', alignItems: 'center', gap: '10px',
+              }}>
+                <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+                  <rect width="20" height="14" rx="3" fill="#FF0000"/>
+                  <path d="M8 4L14 7L8 10V4Z" fill="white"/>
+                </svg>
+                <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  YouTube Studio · Channel Analytics
+                </span>
               </div>
 
+              {/* Big stat */}
+              <div style={{ padding: '28px 24px 16px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
+                  In the selected period, your channel got
+                </div>
+                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(32px,4vw,48px)', color: '#fff', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                  4,696,044 <span style={{ fontSize: '0.45em', fontWeight: 500, color: 'rgba(255,255,255,0.5)' }}>views</span>
+                </div>
+              </div>
+
+              {/* Chart image */}
+              <div style={{ padding: '0 8px 8px' }}>
+                <img
+                  src="/images/analytics-chart.png"
+                  alt="YouTube channel views over time"
+                  draggable={false}
+                  style={{
+                    width: '100%', display: 'block', borderRadius: '8px',
+                    pointerEvents: 'none', userSelect: 'none',
+                    filter: 'brightness(1.05) contrast(1.05)',
+                  }}
+                />
+              </div>
+
+              {/* Caption */}
+              <div style={{ padding: '12px 24px 20px', fontSize: '12px', color: 'rgba(255,255,255,0.3)', lineHeight: 1.5 }}>
+                Jared's channel — growing organically since applying the Attraction System. No ad spend on content.
+              </div>
+            </div>
+
+            {/* 2×2 question cards */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+              {[
+                "When was the last time you felt confident that your marketing was actually working?",
+                "Are you tired of throwing money at ads that cost more every month?",
+                "Frustrated with calling leads who don't know who you are, except they are the ones that signed up through your ads?",
+                "Fed up with networking events that eat up your time but only connect you with one person at a time?",
+              ].map((q, i) => (
+                <div key={i}
+                  style={{
+                    display: 'flex', flexDirection: 'column', gap: '12px',
+                    background: '#111827',
+                    borderRadius: '16px', padding: '20px',
+                    borderTop: `3px solid ${COPPER}`,
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
+                    transition: 'transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease',
+                    cursor: 'default',
+                  }}
+                  onMouseOver={e => {
+                    const el = e.currentTarget;
+                    el.style.transform = 'translateY(-4px)';
+                    el.style.boxShadow = `0 12px 32px rgba(0,0,0,0.25), 0 0 0 1px ${COPPER}55`;
+                  }}
+                  onMouseOut={e => {
+                    const el = e.currentTarget;
+                    el.style.transform = 'translateY(0)';
+                    el.style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)';
+                  }}
+                >
+                  <span style={{
+                    fontFamily: "'Cabinet Grotesk', sans-serif",
+                    fontWeight: 800, fontSize: '32px', color: COPPER,
+                    lineHeight: 1, letterSpacing: '-0.02em',
+                  }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <p style={{ fontSize: '14px', fontWeight: 500, color: '#f3f4f6', lineHeight: 1.6, margin: 0 }}>{q}</p>
+                </div>
+              ))}
             </div>
           </div>
 
