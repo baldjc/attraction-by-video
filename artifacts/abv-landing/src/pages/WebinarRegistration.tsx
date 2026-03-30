@@ -411,14 +411,23 @@ export function WebinarRegistration() {
           transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1)',
         }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Jared photo placeholder */}
-            <div style={{
-              background: '#e5e7eb', borderRadius: '20px',
-              aspectRatio: '1/1', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', color: '#9ca3af', fontSize: '14px',
-              maxWidth: '480px', width: '100%',
-            }}>
-              Jared headshot (arms crossed)
+            {/* Jared photo */}
+            <div style={{ position: 'relative', maxWidth: '480px', width: '100%' }}>
+              <div style={{
+                position: 'absolute', inset: 0, borderRadius: '24px',
+                background: `linear-gradient(135deg, ${COPPER}28 0%, transparent 60%)`,
+                transform: 'translate(10px, 10px)', zIndex: 0,
+              }} />
+              <img
+                src="/images/jared-headshot-arms.png"
+                alt="Jared Chamberlain"
+                style={{
+                  width: '100%', borderRadius: '24px', display: 'block',
+                  position: 'relative', zIndex: 1,
+                  objectFit: 'cover', aspectRatio: '1/1',
+                  boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
+                }}
+              />
             </div>
 
             <div>
