@@ -542,13 +542,25 @@ export function WebinarRegistration() {
           transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1)',
         }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Workspace photo placeholder */}
-            <div style={{
-              background: '#e5e7eb', borderRadius: '20px',
-              aspectRatio: '4/3', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', color: '#9ca3af', fontSize: '14px',
-            }}>
-              Workspace / lifestyle photo
+            {/* After thumbnails — social proof */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <p style={{
+                fontSize: '11px', fontWeight: 700, textTransform: 'uppercase',
+                letterSpacing: '0.12em', color: COPPER, margin: '0 0 4px',
+              }}>Real Results From Real Agents</p>
+              {['after-1.png', 'after-2.png', 'after-3.png'].map((file, i) => (
+                <img
+                  key={i}
+                  src={`/images/thumbnails/${file}`}
+                  alt={`YouTube result ${i + 1}`}
+                  draggable={false}
+                  style={{
+                    width: '100%', borderRadius: '12px', display: 'block',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
+                    pointerEvents: 'none', userSelect: 'none',
+                  }}
+                />
+              ))}
             </div>
 
             <div>
