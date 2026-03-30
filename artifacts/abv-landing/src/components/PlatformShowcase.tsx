@@ -112,51 +112,74 @@ export function PlatformShowcase() {
             </div>
           </div>
 
-          {/* CARD 2 - AI Tools */}
-          <div className="group" style={{
-            background: '#fff', borderRadius: '24px', border: '1px solid var(--border)', padding: '36px', transition: 'all 0.4s var(--ease-out-expo)'
+          {/* CARD 2 - AI Tools — full-width with real screenshot */}
+          <div className="lg:col-span-2 group" style={{
+            background: '#fff', borderRadius: '24px', border: '1px solid var(--border)', padding: '40px', transition: 'all 0.4s var(--ease-out-expo)',
+            overflow: 'hidden',
           }}
           onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)'; }}
           onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
-            <div style={{
-              width: '44px', height: '44px', borderRadius: '12px', background: '#6ba3c720',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', color: '#6ba3c7'
-            }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg>
-            </div>
-            <h3 style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '22px', marginBottom: '8px', color: 'var(--text-primary)' }}>AI Tools</h3>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '20px' }}>Built for real estate agents. Not generic prompts.</p>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              {['Avatar Architect', 'Title Creator (700+ frameworks)', 'ARC Script Builder', 'Thumbnail Analyser'].map((feature, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px 0', borderBottom: i < 3 ? '1px solid var(--border)' : 'none', fontSize: '14px', color: 'var(--text-primary)' }}>
-                  <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--accent-azure)' }}></div>
-                  {feature}
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* CARD 3 - Generate Leads */}
-          <div className="group" style={{
-            background: '#fff', borderRadius: '24px', border: '1px solid var(--border)', padding: '36px', transition: 'all 0.4s var(--ease-out-expo)'
-          }}
-          onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)'; }}
-          onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
-            <div style={{
-              width: '44px', height: '44px', borderRadius: '12px', background: '#E6394620',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', color: '#E63946'
-            }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-            </div>
-            <h3 style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '22px', marginBottom: '8px', color: 'var(--text-primary)' }}>Generate Leads</h3>
-            <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '20px' }}>Turn views into conversations.</p>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              {['Campaign link builder', 'Conversion analytics', 'YouTube view integration'].map((feature, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px 0', borderBottom: i < 2 ? '1px solid var(--border)' : 'none', fontSize: '14px', color: 'var(--text-primary)' }}>
-                  <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--accent-azure)' }}></div>
-                  {feature}
+            {/* Header row */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '24px', marginBottom: '32px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                <div style={{
+                  width: '44px', height: '44px', borderRadius: '12px', background: '#6ba3c720',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#6ba3c7'
+                }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg>
                 </div>
-              ))}
+                <div>
+                  <h3 style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700, fontSize: '22px', marginBottom: '6px', color: 'var(--text-primary)' }}>AI Tools</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '480px' }}>
+                    Six purpose-built AI tools trained on real estate YouTube — not generic ChatGPT prompts. Each one knows your avatar, your market, and your content strategy.
+                  </p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'var(--bg-warm)', borderRadius: '20px', padding: '6px 14px', border: '1px solid var(--border)', flexShrink: 0 }}>
+                <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#22c55e' }} />
+                <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-secondary)' }}>6 tools live inside the platform</span>
+              </div>
+            </div>
+
+            {/* Product screenshot in app chrome */}
+            <div style={{
+              borderRadius: '14px',
+              overflow: 'hidden',
+              border: '1px solid var(--border)',
+              boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
+            }}>
+              {/* Browser chrome bar */}
+              <div style={{
+                background: '#f0ede8',
+                padding: '10px 16px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                borderBottom: '1px solid var(--border)',
+              }}>
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f56' }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' }} />
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#27c93f' }} />
+                <div style={{
+                  marginLeft: '12px',
+                  background: '#fff',
+                  borderRadius: '6px',
+                  padding: '3px 12px',
+                  fontSize: '11px',
+                  color: 'var(--text-muted)',
+                  flex: 1,
+                  maxWidth: '280px',
+                }}>
+                  members.attractionbyvideo.com/tools
+                </div>
+              </div>
+              {/* Screenshot */}
+              <img
+                src="/images/ai-tools.png"
+                alt="AI Tools inside the Attraction by Video platform"
+                style={{ width: '100%', display: 'block' }}
+              />
             </div>
           </div>
 
