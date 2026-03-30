@@ -48,7 +48,7 @@ export function Nav() {
           <img
             src="/images/abv-wordmark.png"
             alt="Attraction by Video"
-            style={{ height: '48px', width: 'auto' }}
+            style={{ height: '60px', width: 'auto' }}
           />
         </a>
 
