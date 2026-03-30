@@ -173,13 +173,18 @@ export function Testimonials() {
             }}
           >
             <div>
-              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '56px', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>200+</div>
-              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)' }}>leads generated since March 8 — Paul Wolfert</div>
+              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>$171M+</div>
+              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)' }}>in real estate volume sold from Jared's YouTube channel since 2022</div>
             </div>
             <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.08)' }} />
             <div>
-              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '56px', color: '#fff', lineHeight: 1, marginBottom: '8px' }}>$4M+</div>
-              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)' }}>in commissions generated from YouTube leads across the program</div>
+              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: '#fff', lineHeight: 1, marginBottom: '8px' }}>$4M+</div>
+              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)' }}>in GCI generated from YouTube leads across the program</div>
+            </div>
+            <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.08)' }} />
+            <div>
+              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: 'var(--accent-azure)', lineHeight: 1, marginBottom: '8px' }}>200+</div>
+              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)' }}>leads generated since March 8 — Paul Wolfert</div>
             </div>
           </div>
 

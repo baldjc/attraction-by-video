@@ -57,7 +57,7 @@ export function Hero() {
               maxWidth: '560px',
               margin: '0 auto 16px',
             }}>
-              The YouTube system that's generated nearly $4 million in commissions — without spending a dollar on cold ads. Built for realtors who want clients that already trust them.
+              The YouTube system behind $171M+ in real estate sold — and nearly $4M in commissions — without spending a dollar on cold ads. Built for realtors who want clients that already trust them.
             </p>
 
             <p style={{
@@ -158,8 +158,8 @@ export function Hero() {
             flexWrap: 'wrap',
           }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontSize: '32px', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>$4M+</div>
-              <div style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>In Commissions</div>
+              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontSize: '32px', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>$171M+</div>
+              <div style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>Volume Sold via YouTube</div>
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontSize: '32px', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>242+</div>

@@ -41,7 +41,7 @@ export function AboutJared() {
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               {[
                 { stat: '$80K/month', desc: 'generated from YouTube leads' },
-                { stat: '$3,996,258+ GCI', desc: 'from YouTube over 4 years' },
+                { stat: '$171M+ sold', desc: 'in real estate volume from YouTube since 2022 — $3,996,258+ in GCI' },
                 { stat: '16 years', desc: 'on video — started long before most agents knew YouTube was an option' },
                 { stat: "Trained by Mr. Beast & Alex Hormozi's advisor", desc: 'learned from the best in the YouTube world' },
                 { stat: '4.5M views', desc: '296.4K watch time hours, 21K+ subscribers' },
