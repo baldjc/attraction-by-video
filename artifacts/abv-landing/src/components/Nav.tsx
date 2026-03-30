@@ -77,7 +77,7 @@ export function Nav() {
             e.currentTarget.style.transform = 'translateY(0)';
             e.currentTarget.style.boxShadow = 'none';
           }}>
-            <span className="hidden sm:inline">Get Your Free </span>Audit
+            <span className="hidden sm:inline">Get Your </span>Free Audit
           </a>
         </div>
 
