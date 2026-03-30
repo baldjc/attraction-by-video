@@ -41,14 +41,10 @@ const members = [
 ];
 
 function SlackCard({ member, delay, wide }: { member: typeof members[0]; delay: string; wide: boolean }) {
-  const { ref, isVisible } = useInView();
-
   return (
     <div
-      ref={ref}
-      className={`fade-up ${isVisible ? 'visible' : ''} ${wide ? 'md:col-span-2' : ''}`}
+      className={`${wide ? 'md:col-span-2' : ''}`}
       style={{
-        transitionDelay: delay,
         background: '#ffffff',
         borderRadius: '12px',
         border: '1px solid #e8e8e8',
