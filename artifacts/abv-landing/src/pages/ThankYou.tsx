@@ -78,15 +78,8 @@ export function ThankYou() {
         padding: '20px 0',
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <a href="/" style={{
-            fontFamily: "'Cabinet Grotesk', sans-serif",
-            fontWeight: 800,
-            fontSize: '18px',
-            letterSpacing: '-0.02em',
-            color: 'var(--text-primary)',
-            textDecoration: 'none',
-          }}>
-            attraction <span style={{ color: 'var(--accent-azure)' }}>by video</span>
+          <a href="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img src="/images/abv-wordmark.png" alt="Attraction by Video" style={{ height: '32px', width: 'auto' }} />
           </a>
           <a href="/" style={{
             background: '#1A1A1A',

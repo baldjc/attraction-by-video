@@ -11,22 +11,27 @@ export function Nav() {
       WebkitBackdropFilter: 'blur(20px)',
       background: 'rgba(250,250,248,0.85)',
       borderBottom: '1px solid var(--border)',
-      padding: '20px 0'
+      padding: '14px 0',
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        {/* Left: wordmark */}
-        <div style={{
-          fontFamily: "'Cabinet Grotesk', sans-serif",
-          fontWeight: 800,
-          fontSize: '18px',
-          letterSpacing: '-0.02em',
-          color: 'var(--text-primary)'
-        }}>
-          attraction <span style={{ color: 'var(--accent-azure)' }}>by video</span>
-        </div>
 
-        {/* Right: nav links & CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+        {/* Left: icon + wordmark lockup */}
+        <a href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+          <img
+            src="/images/abv-icon.png"
+            alt=""
+            aria-hidden="true"
+            style={{ height: '44px', width: '44px', borderRadius: '10px', objectFit: 'cover' }}
+          />
+          <img
+            src="/images/abv-wordmark.png"
+            alt="Attraction by Video"
+            style={{ height: '36px', width: 'auto' }}
+          />
+        </a>
+
+        {/* Right: nav links, CTA, members login */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
           <div className="hidden md:flex items-center gap-8">
             <a href="#platform" style={{
               fontSize: '13px',
@@ -34,7 +39,8 @@ export function Nav() {
               color: 'var(--text-secondary)',
               textTransform: 'uppercase',
               letterSpacing: '0.02em',
-              transition: 'color 0.2s ease'
+              textDecoration: 'none',
+              transition: 'color 0.2s ease',
             }}
             onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
             onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
@@ -46,7 +52,8 @@ export function Nav() {
               color: 'var(--text-secondary)',
               textTransform: 'uppercase',
               letterSpacing: '0.02em',
-              transition: 'color 0.2s ease'
+              textDecoration: 'none',
+              transition: 'color 0.2s ease',
             }}
             onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
             onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
@@ -58,14 +65,33 @@ export function Nav() {
               color: 'var(--text-secondary)',
               textTransform: 'uppercase',
               letterSpacing: '0.02em',
-              transition: 'color 0.2s ease'
+              textDecoration: 'none',
+              transition: 'color 0.2s ease',
             }}
             onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
             onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
               Results
             </a>
           </div>
-          
+
+          <a
+            href="https://members.attractionbyvideo.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '13px',
+              fontWeight: 500,
+              color: 'var(--text-secondary)',
+              textDecoration: 'none',
+              transition: 'color 0.2s ease',
+              whiteSpace: 'nowrap',
+            }}
+            onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+            onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+          >
+            Members Login
+          </a>
+
           <a href="#audit" style={{
             background: '#1A1A1A',
             color: '#FFFFFF',
@@ -77,7 +103,8 @@ export function Nav() {
             letterSpacing: '0.02em',
             transition: 'all 0.3s var(--ease-out-expo)',
             textDecoration: 'none',
-            display: 'inline-block'
+            display: 'inline-block',
+            whiteSpace: 'nowrap',
           }}
           onMouseOver={(e) => {
             e.currentTarget.style.transform = 'translateY(-1px)';
@@ -90,6 +117,7 @@ export function Nav() {
             Get Your Free Audit
           </a>
         </div>
+
       </div>
     </nav>
   );
