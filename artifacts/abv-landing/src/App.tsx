@@ -13,6 +13,7 @@ import { HireAHuman } from "./components/HireAHuman";
 import { Testimonials } from "./components/Testimonials";
 import { AboutJared } from "./components/AboutJared";
 import { BeforeAfter } from "./components/BeforeAfter";
+import { AuditReportPreview } from "./components/AuditReportPreview";
 import { AuditForm } from "./components/AuditForm";
 import { DirectJoin } from "./components/DirectJoin";
 import { FinalClose } from "./components/FinalClose";
@@ -31,6 +32,7 @@ function LandingPage() {
       <Testimonials />
       <AboutJared />
       <BeforeAfter />
+      <AuditReportPreview />
       <AuditForm />
       <DirectJoin />
       <FinalClose />
