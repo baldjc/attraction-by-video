@@ -1,0 +1,93 @@
+  Add to the Replit project:
+
+  New file: app/thank-you/page.tsx
+
+  Route: /thank-you
+
+  Design: Same minimalist taste-skill aesthetic as the main page. Full-page centred
+  layout.
+
+  Content:
+  - Nav (same as main page, but "Get Your Free Audit" CTA changes to "Back to Home")
+  - Centred content block (max-width 640px, vertically centred, min-height 100dvh):
+    - Animated checkmark icon (accent-azure, draws in on page load — SVG circle +
+  check path animation)
+    - h1: "Your audit is underway." — Cabinet Grotesk 800, 48px
+    - Subtext: "We need 48 hours to analyse your channel across our 16-point
+  Attraction system. We'll text you to book your walkthrough call as soon as it's
+  ready." — 17px, text-secondary, line-height 1.7
+    - What to expect card (bg-card, border, rounded, padding 32px, margin-top 40px):
+        - "What happens next:" — 14px 600 weight, margin-bottom 16px
+      - Timeline steps (vertical line with dots):
+            1. "Right now" — "Check your phone — we just sent you a confirmation
+  text."
+        2. "Next 48 hours" — "We run your full 16-point Attraction Audit."
+        3. "When it's ready" — "We'll text you a link to book your 15-minute
+  walkthrough call."
+      - Each step: dot (8px, accent-azure) connected by vertical line (2px, border
+  colour), step title (14px 600 weight), step description (13px text-secondary)
+    - CTA: "While you wait, watch this" — ghost link to the VSL or YouTube channel
+    - Small text: "Questions? Text Jared directly at [phone]" — 13px text-muted
+
+  Footer: Same as main page.
+
+  Conversion tracking: Add a Google Ads conversion pixel / Meta pixel fire on this
+  page (placeholder script tag with {/* TODO: Add conversion tracking pixel */}).
+  This is how you'll track cost-per-audit-request from ads.
+
+  Update AuditForm.tsx
+
+  After successful form submission, redirect to /thank-you instead of showing the
+  inline thank-you message:
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitting(true)
+
+    // Preserve UTM params
+    const params = new URLSearchParams(window.location.search)
+
+    const response = await fetch('GHL_WEBHOOK_URL_HERE', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        youtube_channel_url: formData.youtubeUrl,
+        Current_YouTube_Commission: formData.currentCommission,
+        desired_YouTube_Commission: formData.desiredCommission,
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+      }),
+    })
+
+    if (response.ok) {
+      window.location.href = '/thank-you'
+    } else {
+      setError('Something went wrong. Please try again.')
+      setSubmitting(false)
+    }
+  }
+
+  ---
+  Step 5: The Webhook Field Mapping
+
+  When the native form POSTs to the GHL webhook, the JSON body will look like:
+
+  {
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "+14035551234",
+    "youtube_channel_url": "https://youtube.com/@janesmith",
+    "Current_YouTube_Commission": "$50-100K",
+    "desired_YouTube_Commission": "$500K+",
+    "utm_source": "google",
+    "utm_medium": "cpc",
+    "utm_campaign": "abv-audit"
+  }
+
+  In the GHL workflow's "Create/Update Contact" action, map each of these JSON keys
+  to the corresponding GHL field using the {{trigger.body.name}},
+  {{trigger.body.email}} etc. syntax.
