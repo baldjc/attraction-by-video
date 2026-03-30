@@ -258,17 +258,30 @@ export function WebinarRegistration() {
                 ))}
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {[
-                  'If you\'re a business owner who has been struggling to get consistent, quality clients — you\'re not alone.',
-                  'The traditional marketing methods that used to work are becoming less effective and more expensive every day. Meanwhile, your competition is finding new ways to reach clients you\'ve been trying to attract.',
-                  'The good news? There\'s a better way. One that builds trust before you ever say a word, positions you as the expert in your market, and works 24/7 — even while you sleep.',
-                  'This free masterclass will show you exactly how to build that system using YouTube.',
-                ].map((p, i) => (
-                  <p key={i} style={{ fontSize: '15px', color: '#4b5563', lineHeight: 1.75, margin: 0 }}>{p}</p>
-                ))}
-              </div>
             </div>
+          </div>
+
+          {/* Full-width text below the grid */}
+          <div style={{
+            marginTop: '56px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '24px',
+            borderTop: '1px solid #e5e7eb',
+            paddingTop: '48px',
+          }}>
+            {[
+              'If you\'re a business owner who has been struggling to get consistent, quality clients — you\'re not alone.',
+              'The traditional marketing methods that used to work are becoming less effective and more expensive every day. Meanwhile, your competition is finding new ways to reach clients you\'ve been trying to attract.',
+              'The good news? There\'s a better way. One that builds trust before you ever say a word, positions you as the expert in your market, and works 24/7 — even while you sleep.',
+              'This free masterclass will show you exactly how to build that system using YouTube.',
+            ].map((p, i) => (
+              <p key={i} style={{
+                fontSize: '17px', color: '#374151', lineHeight: 1.8,
+                margin: 0,
+                ...(i === 3 ? { fontWeight: 700, color: '#111827' } : {}),
+              }}>{p}</p>
+            ))}
           </div>
         </div>
       </section>
