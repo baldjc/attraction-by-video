@@ -254,13 +254,29 @@ export function WebinarRegistration() {
                   "Frustrated with calling leads who don\u2019t know who you are, except they are the ones that signed up through your ads?",
                   "Fed up with networking events that eat up your time but only connect you with one person at a time?",
                 ].map((q, i) => (
-                  <div key={i} style={{
-                    display: 'flex', gap: '20px', alignItems: 'flex-start',
-                    background: '#111827',
-                    borderRadius: '16px', padding: '22px 24px',
-                    borderLeft: `4px solid ${COPPER}`,
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
-                  }}>
+                  <div key={i}
+                    style={{
+                      display: 'flex', gap: '20px', alignItems: 'flex-start',
+                      background: '#111827',
+                      borderRadius: '16px', padding: '22px 24px',
+                      borderLeft: `4px solid ${COPPER}`,
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
+                      transition: 'transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease, border-color 0.25s ease',
+                      cursor: 'default',
+                    }}
+                    onMouseOver={e => {
+                      const el = e.currentTarget;
+                      el.style.transform = 'translateY(-4px)';
+                      el.style.boxShadow = `0 12px 32px rgba(0,0,0,0.25), 0 0 0 1px ${COPPER}55`;
+                      el.style.borderLeftColor = '#e8925a';
+                    }}
+                    onMouseOut={e => {
+                      const el = e.currentTarget;
+                      el.style.transform = 'translateY(0)';
+                      el.style.boxShadow = '0 4px 20px rgba(0,0,0,0.10)';
+                      el.style.borderLeftColor = COPPER;
+                    }}
+                  >
                     <span style={{
                       fontFamily: "'Cabinet Grotesk', sans-serif",
                       fontWeight: 800, fontSize: '28px', color: COPPER,
