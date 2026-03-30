@@ -118,11 +118,11 @@ export function WebinarRegistration() {
           backgroundImage: 'radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
         }} />
-        {/* Copper glow — upper center */}
+        {/* Crimson glow — upper center */}
         <div style={{
           position: 'absolute', top: '-180px', left: '50%', transform: 'translateX(-50%)',
           width: '1000px', height: '640px', zIndex: 0, pointerEvents: 'none',
-          background: 'radial-gradient(ellipse, rgba(211,117,61,0.22) 0%, transparent 68%)',
+          background: 'radial-gradient(ellipse, rgba(255,0,51,0.22) 0%, transparent 68%)',
         }} />
         {/* Azure glow — lower left */}
         <div style={{
