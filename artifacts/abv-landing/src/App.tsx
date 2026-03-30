@@ -30,8 +30,8 @@ function LandingPage() {
       <PlatformShowcase />
       <HireAHuman />
       <Testimonials />
-      <AboutJared />
       <BeforeAfter />
+      <AboutJared />
       <AuditReportPreview />
       <AuditForm />
       <DirectJoin />
