@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Attraction by Video"
+version = "1.0.0"
+id = "artifacts/abv-landing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23460
+
+[services.development]
+run = "pnpm --filter @workspace/abv-landing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/abv-landing", "run", "build" ]
+publicDir = "artifacts/abv-landing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23460"
+BASE_PATH = "/"
