@@ -187,10 +187,10 @@ export function BeforeAfter() {
             {/* Big number */}
             <div style={{ marginBottom: '4px' }}>
               <span style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: 'rgba(255,255,255,0.25)', lineHeight: 1 }}>
-                39,300
+                23,200
               </span>
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', marginBottom: '24px' }}>views in 2019</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', marginBottom: '24px' }}>views in 2017</div>
 
             {/* Video list */}
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '4px' }}>
@@ -256,7 +256,7 @@ export function BeforeAfter() {
             fontWeight: 900,
             fontSize: '28px',
             color: 'var(--accent-azure)',
-          }}>21× more views. Zero cold ad spend.</span>
+          }}>35× more views. Zero cold ad spend.</span>
           <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.08)', maxWidth: '200px' }} />
         </div>
 
