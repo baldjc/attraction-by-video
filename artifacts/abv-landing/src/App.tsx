@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
 import { ThankYou } from "./pages/ThankYou";
+import { WebinarRegistration } from "./pages/WebinarRegistration";
+import { WebinarThankYou } from "./pages/WebinarThankYou";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Problem } from "./components/Problem";
@@ -46,6 +48,8 @@ function Router() {
     <Switch>
       <Route path="/" component={LandingPage} />
       <Route path="/thank-you" component={ThankYou} />
+      <Route path="/webinar-registration" component={WebinarRegistration} />
+      <Route path="/webinar-thank-you" component={WebinarThankYou} />
       <Route component={NotFound} />
     </Switch>
   );
