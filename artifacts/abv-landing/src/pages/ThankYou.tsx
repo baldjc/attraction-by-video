@@ -227,9 +227,8 @@ export function ThankYou() {
 
             <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--text-muted)' }}>
               Questions? Text Jared directly at{' '}
-              <a href="sms:+1" style={{ color: 'var(--text-muted)' }}>
-                {/* TODO: Add Jared's phone number */}
-                [phone number]
+              <a href="sms:+13656575528" style={{ color: 'var(--text-muted)' }}>
+                +1 365-657-5528
               </a>
             </p>
           </div>
