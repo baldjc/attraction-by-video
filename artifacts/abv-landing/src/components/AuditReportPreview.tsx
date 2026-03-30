@@ -49,7 +49,7 @@ export function AuditReportPreview() {
   const { ref, isVisible } = useInView();
 
   return (
-    <section style={{ background: 'var(--bg-dark)', padding: '120px 0', overflow: 'hidden' }}>
+    <section id="audit-info" style={{ background: 'var(--bg-dark)', padding: '120px 0', overflow: 'hidden' }}>
       <div className="container" ref={ref}>
 
         {/* Header */}

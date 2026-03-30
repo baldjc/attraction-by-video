@@ -41,6 +41,14 @@ export function Nav() {
           onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
             Results
           </a>
+          <a href="#audit-info" style={{
+            fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)',
+            textTransform: 'uppercase', letterSpacing: '0.02em', textDecoration: 'none', transition: 'color 0.2s ease',
+          }}
+          onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+          onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
+            Audit
+          </a>
         </div>
 
         {/* Center: wordmark only, bigger */}
