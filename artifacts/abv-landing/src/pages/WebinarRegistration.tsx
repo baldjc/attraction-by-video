@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Nav } from '../components/Nav';
 import { Footer } from '../components/Footer';
 import { Testimonials } from '../components/Testimonials';
+import { BeforeAfter } from '../components/BeforeAfter';
 import { RegistrationModal } from '../components/RegistrationModal';
 import { getSiteConfig, SITE_CONFIG_DEFAULTS, SiteConfig } from '../lib/site-config';
 
@@ -595,10 +596,13 @@ export function WebinarRegistration() {
         </div>
       </section>
 
-      {/* ── 8. TESTIMONIALS ── */}
+      {/* ── 8. BEFORE / AFTER ── */}
+      <BeforeAfter />
+
+      {/* ── 9. TESTIMONIALS ── */}
       <Testimonials />
 
-      {/* ── 9. FOOTER ── */}
+      {/* ── 10. FOOTER ── */}
       <Footer />
 
       <style>{`
