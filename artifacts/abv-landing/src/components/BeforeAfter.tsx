@@ -131,7 +131,7 @@ export function BeforeAfter() {
   useEffect(() => {
     if (!isVisible) return;
     let current = 0;
-    const target = 287400;
+    const target = 821429;
     const steps = 60;
     const stepTime = 2000 / steps;
     const inc = target / steps;
@@ -187,10 +187,10 @@ export function BeforeAfter() {
             {/* Big number */}
             <div style={{ marginBottom: '4px' }}>
               <span style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: 'rgba(255,255,255,0.25)', lineHeight: 1 }}>
-                13,180
+                39,300
               </span>
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', marginBottom: '24px' }}>views across 16 videos</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', marginBottom: '24px' }}>views in 2019</div>
 
             {/* Video list */}
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '4px' }}>
@@ -225,7 +225,7 @@ export function BeforeAfter() {
                 {count.toLocaleString()}
               </span>
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', marginBottom: '24px' }}>views across 12 videos</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', marginBottom: '24px' }}>views in the past 365 days</div>
 
             {/* Video list */}
             <div style={{ borderTop: '1px solid rgba(61,195,255,0.1)', paddingTop: '4px' }}>
@@ -256,7 +256,7 @@ export function BeforeAfter() {
             fontWeight: 900,
             fontSize: '28px',
             color: 'var(--accent-azure)',
-          }}>22× more views with zero cold ad spend.</span>
+          }}>21× more views. Zero cold ad spend.</span>
           <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.08)', maxWidth: '200px' }} />
         </div>
 
