@@ -550,7 +550,13 @@ export function WebinarRegistration() {
       </section>
 
       {/* ── 7. FINAL URGENCY CLOSE ── */}
-      <section style={{ background: '#FAFAF8', padding: 'clamp(80px,8vw,120px) 24px' }}>
+      <section style={{ background: '#0d0d0d', padding: 'clamp(80px,8vw,120px) 24px', position: 'relative', overflow: 'hidden' }}>
+        {/* Dot grid */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        {/* Crimson glow — upper right */}
+        <div style={{ position: 'absolute', top: '-100px', right: '-80px', width: '500px', height: '380px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(255,0,51,0.12) 0%, transparent 65%)' }} />
+        {/* Azure glow — lower left */}
+        <div style={{ position: 'absolute', bottom: '-100px', left: '-80px', width: '500px', height: '380px', zIndex: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse, rgba(61,195,255,0.08) 0%, transparent 65%)' }} />
         <div ref={close.ref} className="container" style={{
           maxWidth: '1100px',
           opacity: close.visible ? 1 : 0,
@@ -618,12 +624,12 @@ export function WebinarRegistration() {
               </div>
             </div>
 
-            <div>
+            <div style={{ position: 'relative', zIndex: 1 }}>
               <h2 style={{
                 fontFamily: "'Cabinet Grotesk', sans-serif",
                 fontWeight: 800, fontSize: 'clamp(28px,4vw,44px)',
                 lineHeight: 1.1, letterSpacing: '-0.03em',
-                color: '#111827', marginBottom: '28px',
+                color: '#fff', marginBottom: '28px',
               }}>
                 <span style={{ color: COPPER }}>Don't Let</span> Another Day Pass By Without Taking Action
               </h2>
@@ -634,9 +640,9 @@ export function WebinarRegistration() {
                   'Every day you wait is another day your competition edges closer to the clients you deserve. Every day you wait is another day of expensive ads, cold calls, and inconsistent referrals.',
                   'The business owners who are thriving with YouTube were once exactly where you are now. They made a decision to do something different. They took action.',
                 ].map((p, i) => (
-                  <p key={i} style={{ fontSize: '15px', color: '#374151', lineHeight: 1.75, margin: 0 }}>{p}</p>
+                  <p key={i} style={{ fontSize: '15px', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0 }}>{p}</p>
                 ))}
-                <p style={{ fontSize: '17px', fontWeight: 700, color: '#111827', margin: 0 }}>
+                <p style={{ fontSize: '17px', fontWeight: 700, color: '#fff', margin: 0 }}>
                   Now it's your turn.
                 </p>
               </div>
