@@ -196,19 +196,31 @@ export function WebinarRegistration() {
             and Start Attracting Them
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Jared photo placeholder */}
-            <div style={{
-              background: '#e5e7eb', borderRadius: '20px',
-              aspectRatio: '4/5', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', color: '#9ca3af', fontSize: '14px',
-            }}>
-              Jared photo
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Jared photo */}
+            <div style={{ position: 'relative' }}>
+              <div style={{
+                position: 'absolute', inset: 0,
+                borderRadius: '24px',
+                background: `linear-gradient(135deg, ${COPPER}30 0%, transparent 60%)`,
+                transform: 'translate(10px, 10px)',
+                zIndex: 0,
+              }} />
+              <img
+                src="/images/jared-headshot.png"
+                alt="Jared Chamberlain"
+                style={{
+                  width: '100%', borderRadius: '24px',
+                  display: 'block', position: 'relative', zIndex: 1,
+                  objectFit: 'cover', aspectRatio: '4/5',
+                  boxShadow: '0 24px 60px rgba(0,0,0,0.15)',
+                }}
+              />
             </div>
 
             {/* Questions */}
             <div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '36px' }}>
                 {[
                   "When was the last time you felt confident that your marketing was actually working?",
                   "Are you tired of throwing money at ads that cost more every month?",
@@ -216,15 +228,21 @@ export function WebinarRegistration() {
                   "Fed up with networking events that eat up your time but only connect you with one person at a time?",
                 ].map((q, i) => (
                   <div key={i} style={{
-                    display: 'flex', gap: '16px', alignItems: 'flex-start',
-                    background: '#fff', border: '1px solid #e5e7eb',
-                    borderRadius: '16px', padding: '20px 24px',
+                    display: 'flex', gap: '20px', alignItems: 'flex-start',
+                    background: '#111827',
+                    borderRadius: '16px', padding: '22px 24px',
+                    borderLeft: `4px solid ${COPPER}`,
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
                   }}>
-                    <div style={{
-                      width: '8px', height: '8px', borderRadius: '50%',
-                      background: COPPER, marginTop: '7px', flexShrink: 0,
-                    }} />
-                    <p style={{ fontSize: '15px', color: '#374151', lineHeight: 1.6, margin: 0 }}>{q}</p>
+                    <span style={{
+                      fontFamily: "'Cabinet Grotesk', sans-serif",
+                      fontWeight: 800, fontSize: '28px', color: COPPER,
+                      lineHeight: 1, flexShrink: 0, minWidth: '36px',
+                      letterSpacing: '-0.02em',
+                    }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <p style={{ fontSize: '16px', fontWeight: 500, color: '#f3f4f6', lineHeight: 1.6, margin: 0, paddingTop: '4px' }}>{q}</p>
                   </div>
                 ))}
               </div>
