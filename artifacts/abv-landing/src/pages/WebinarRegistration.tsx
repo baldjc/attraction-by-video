@@ -119,6 +119,17 @@ export function WebinarRegistration() {
           position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 120% 100% at 50% 50%, transparent 50%, rgba(0,0,0,0.5) 100%)',
         }} />
+        {/* YouTube watermark */}
+        <div style={{
+          position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)',
+          zIndex: 0, pointerEvents: 'none', opacity: 0.055,
+          filter: 'blur(0.5px)',
+        }}>
+          <svg width="680" height="480" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M66.52 7.74C65.7 4.73 63.34 2.37 60.32 1.56 55.03 0 34 0 34 0S12.97 0 7.68 1.56C4.66 2.37 2.3 4.73 1.48 7.74 0 13.03 0 24 0 24s0 10.97 1.48 16.26c.82 3.01 3.18 5.37 6.2 6.18C12.97 48 34 48 34 48s21.03 0 26.32-1.56c3.02-.81 5.38-3.17 6.2-6.18C68 34.97 68 24 68 24s0-10.97-1.48-16.26z" fill="white"/>
+            <path d="M27 34.5L45 24 27 13.5v21z" fill="#0d0d0d"/>
+          </svg>
+        </div>
         <div ref={hero.ref} className="container" style={{
           maxWidth: '860px', textAlign: 'center',
           opacity: hero.visible ? 1 : 0,
