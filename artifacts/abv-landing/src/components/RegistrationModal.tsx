@@ -24,7 +24,7 @@ export function RegistrationModal({ config, onClose }: Props) {
     const params = new URLSearchParams(window.location.search);
 
     try {
-      const response = await fetch('GHL_WEBINAR_WEBHOOK_URL_HERE', {
+      const response = await fetch('https://services.leadconnectorhq.com/hooks/vEIiKAjpBkCDrabeDre7/webhook-trigger/1848c4f4-2465-4d81-847e-1e68b3bb0214', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
