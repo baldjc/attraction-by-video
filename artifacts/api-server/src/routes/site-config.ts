@@ -3,8 +3,11 @@ import { pool } from "@workspace/db";
 
 const router = Router();
 
+const EXTERNAL_API =
+  "https://members.attractionbyvideo.com/api/public/site-config";
+
 const DEFAULTS = {
-  date: "May 14th 2026",
+  date: "May 14th 2029",
   time: "11:00 AM MST",
   name: "5 YouTube Mistakes Keeping You Invisible to Your Best Clients",
   price: "Absolutely FREE!",
@@ -18,7 +21,7 @@ const DEFAULTS = {
   registrationOpen: true,
 };
 
-async function getWebinarRow(): Promise<Record<string, unknown>> {
+async function getLocalRow(): Promise<Record<string, unknown>> {
   try {
     const res = await pool.query(
       "SELECT value FROM site_config WHERE key = 'webinar' LIMIT 1"
@@ -29,11 +32,39 @@ async function getWebinarRow(): Promise<Record<string, unknown>> {
   }
 }
 
+async function getExternalConfig(): Promise<Record<string, unknown> | null> {
+  try {
+    const res = await fetch(EXTERNAL_API, {
+      signal: AbortSignal.timeout(4000),
+    });
+    if (res.ok) {
+      const data = (await res.json()) as {
+        webinar?: Record<string, unknown>;
+      };
+      return data?.webinar ?? null;
+    }
+  } catch {
+    // fall through
+  }
+  return null;
+}
+
+// Public endpoint — proxies to the GHL-backed external API server-side
+// (avoids browser CORS restrictions), falls back to local DB, then to defaults.
 router.get("/public/site-config", async (_req, res) => {
-  const stored = await getWebinarRow();
-  res.json({ webinar: { ...DEFAULTS, ...stored } });
+  const external = await getExternalConfig();
+  if (external) {
+    res.json({ webinar: { ...DEFAULTS, ...external } });
+    return;
+  }
+
+  // External unavailable — use local DB override if set, else defaults
+  const local = await getLocalRow();
+  res.json({ webinar: { ...DEFAULTS, ...local } });
 });
 
+// Admin endpoint — updates local DB override values.
+// Protected by SESSION_SECRET via x-admin-token header.
 router.post("/admin/site-config", async (req, res) => {
   const token = req.headers["x-admin-token"];
   if (!token || token !== process.env.SESSION_SECRET) {
@@ -47,7 +78,7 @@ router.post("/admin/site-config", async (req, res) => {
     return;
   }
 
-  const existing = await getWebinarRow();
+  const existing = await getLocalRow();
   const merged = { ...DEFAULTS, ...existing, ...webinar };
 
   await pool.query(
