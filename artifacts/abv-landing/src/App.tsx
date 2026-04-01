@@ -19,6 +19,9 @@ import { AuditReportPreview } from "./components/AuditReportPreview";
 import { AuditForm } from "./components/AuditForm";
 import { DirectJoin } from "./components/DirectJoin";
 import { FinalClose } from "./components/FinalClose";
+import { ReadyToJoin } from "./components/ReadyToJoin";
+import { StickyJoinBar } from "./components/StickyJoinBar";
+import { InlineCTA } from "./components/InlineCTA";
 import { Footer } from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -27,16 +30,21 @@ function LandingPage() {
   return (
     <div className="w-full">
       <Nav />
+      <StickyJoinBar />
       <Hero />
       <Problem />
       <PlatformShowcase />
+      <InlineCTA light={true} />
       <HireAHuman />
+      <InlineCTA light={true} />
       <Testimonials />
+      <InlineCTA light={false} />
       <BeforeAfter />
       <AboutJared />
       <AuditReportPreview />
       <AuditForm />
       <DirectJoin />
+      <ReadyToJoin />
       <FinalClose />
       <Footer />
     </div>

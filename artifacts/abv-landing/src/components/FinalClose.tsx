@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { JOIN_URL_USD } from '../lib/constants';
 
 export function FinalClose() {
   const { ref, isVisible } = useInView();
@@ -24,33 +25,58 @@ export function FinalClose() {
             Keep doing what you've been doing — or build a channel that works for you while you sleep. Your future clients are searching YouTube right now.
           </p>
 
-          <a href="#audit" style={{
-            display: 'inline-block',
-            background: '#fff',
-            color: '#1A1A1A',
-            borderRadius: '100px',
-            padding: '16px 40px',
-            fontSize: '16px',
-            fontWeight: 600,
-            textDecoration: 'none',
-            transition: 'all 0.3s var(--ease-out-expo)'
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.3)';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = 'none';
-          }}>
-            Get Your Free Audit
-          </a>
+          {/* Two buttons side by side */}
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="#audit" style={{
+              display: 'inline-block',
+              background: '#fff',
+              color: '#1A1A1A',
+              borderRadius: '100px',
+              padding: '16px 40px',
+              fontSize: '16px',
+              fontWeight: 600,
+              textDecoration: 'none',
+              transition: 'all 0.3s var(--ease-out-expo)'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.3)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}>
+              Get Your Free Audit
+            </a>
 
-          <div style={{ marginTop: '20px' }}>
-            <a href="#join" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', transition: 'color 0.2s ease' }}
-               onMouseOver={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
-               onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
-              Or join now — $495 USD / $595 CAD per month
+            <a
+              href={JOIN_URL_USD}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                background: 'transparent',
+                color: '#fff',
+                border: '2px solid rgba(255,255,255,0.4)',
+                borderRadius: '100px',
+                padding: '15px 40px',
+                fontSize: '16px',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'all 0.25s ease',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = '#fff';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              Join Now — $495 USD/mo
             </a>
           </div>
 

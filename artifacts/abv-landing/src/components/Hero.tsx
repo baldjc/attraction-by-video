@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { JOIN_URL_USD } from '../lib/constants';
 
 export function Hero() {
   const { ref, isVisible } = useInView();
@@ -69,6 +70,7 @@ export function Hero() {
               Our goal: help 1,000 agents build profitable YouTube channels.
             </p>
 
+            {/* Two equal-sized buttons: filled primary + outline secondary */}
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
               <a href="#audit" style={{
                 padding: '16px 32px',
@@ -97,16 +99,36 @@ export function Hero() {
                 </svg>
               </a>
 
-              <a href="#join" style={{
-                color: 'var(--text-secondary)',
-                fontSize: '15px',
-                fontWeight: 500,
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-              }}
-              onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
-              onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                Join now &rarr;
+              <a
+                href={JOIN_URL_USD}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: '15px 32px',
+                  background: 'transparent',
+                  color: '#1A1A1A',
+                  border: '2px solid #1A1A1A',
+                  borderRadius: '100px',
+                  fontSize: '15px',
+                  fontWeight: 600,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'all 0.25s ease',
+                  textDecoration: 'none',
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = '#1A1A1A';
+                  e.currentTarget.style.color = '#fff';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#1A1A1A';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Join Now — $495/mo
               </a>
             </div>
           </div>

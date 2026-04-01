@@ -1,0 +1,86 @@
+Paste this into Replit:                        
+                         
+  ▎ Make "Join Now" More Visible Across the    
+  Entire Page                                    
+  
+  ▎ Right now the "Join now" action is nearly    
+  invisible — it's a plain text link next to the 
+  primary CTA in the hero. A visitor who came    
+  ready to buy had trouble finding how to sign 
+  up. We need two paths clearly visible at all 
+  times: free audit (for those exploring) and
+  join now (for those ready to commit).
+
+  ▎ 1. Navigation Bar                            
+  
+  ▎ - Add a "Join Now" button to the nav bar,    
+  styled as a secondary/outline button next to 
+  the existing "GET YOUR FREE AUDIT" button      
+  ▎ - So the nav reads: ... Members Login | [Join
+   Now] | [GET YOUR FREE AUDIT]                  
+  ▎ - "Join Now" = outline/ghost style (border, 
+  no fill). "GET YOUR FREE AUDIT" keeps its solid
+   filled style as primary.
+                                                 
+  ▎ 2. Hero Section
+                                               
+  ▎ - Make the "Join now" link a proper styled   
+  button — not a plain text link. Use a 
+  secondary/outline button style so it stands out
+   alongside the primary audit button.
+  ▎ - Both buttons should be visually equal in 
+  size, just different styles (filled vs outline)
+   so visitors see two clear options.
+                                                 
+  ▎ 3. Add a Dedicated "Ready to Join?" Section  
+                                               
+  ▎ - After the results/testimonials/social proof
+   section and before the footer, add a new 
+  section:                                       
+  ▎   - Heading: "Ready to start attracting 
+  clients?"                                      
+  ▎   - Subtext: "$495 USD/mo — cancel anytime. 
+  Includes the full Foundations course, weekly   
+  coaching calls, and your Attraction dashboard."
+  ▎   - Two buttons side by side: [Join Now]     
+  (primary, filled) and [Get Your Free Audit     
+  First] (secondary, outline)                  
+  ▎   - Keep it clean and minimal — no clutter,  
+  just a clear decision point.                   
+                                               
+  ▎ 4. Sticky/Floating Join Bar (Mobile          
+  Especially)     
+                                                 
+  ▎ - On scroll (once the user passes the hero), 
+  show a slim sticky bar at the bottom of the  
+  viewport with:                                 
+  ▎   - Brief text: "Join Attraction by Video — 
+  $495 USD/mo"                                   
+  ▎   - A [Join Now] button
+  ▎   - This should be dismissible (small X) so  
+  it's not annoying, but makes the join action   
+  always one tap away.                         
+                                                 
+  ▎ 5. Sprinkle "Join" CTAs After Each Major     
+  Section                                      
+                                                 
+  ▎ - After any section that builds value        
+  (results, testimonials, "what's included,"   
+  etc.), add a brief inline CTA:                 
+  ▎   - Something like: "Like what you see? [Join
+   Now →]" as a styled link/button               
+  ▎   - Don't overdo the design — keep it subtle 
+  but clickable. The point is that no matter     
+  where someone stops scrolling, a join action is
+   nearby.                                       
+                  
+  ▎ Design Notes                               
+
+  ▎ - "Join Now" buttons should all link to the  
+  same sign-up/checkout destination
+  ▎ - Keep the existing colour scheme — primary  
+  buttons filled, secondary buttons outline/ghost
+  ▎ - The free audit remains the primary path for
+   cold visitors, but "Join Now" should never be 
+  more than one scroll away for warm visitors who
+   are ready 

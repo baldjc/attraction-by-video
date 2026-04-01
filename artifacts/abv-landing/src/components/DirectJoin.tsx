@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { JOIN_URL_USD, JOIN_URL_CAD } from '../lib/constants';
 
 export function DirectJoin() {
   const { ref, isVisible } = useInView();
@@ -22,7 +23,7 @@ export function DirectJoin() {
           </p>
 
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginTop: '32px', flexWrap: 'wrap' }}>
-            <a href="https://buy.stripe.com/dRmdR94pZ9oj09Xh1F0Ny08" target="_blank" rel="noopener noreferrer" style={{
+            <a href={JOIN_URL_USD} target="_blank" rel="noopener noreferrer" style={{
               padding: '16px 32px',
               background: '#1A1A1A',
               color: '#fff',
@@ -36,7 +37,7 @@ export function DirectJoin() {
             onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
               Join — $495 USD/mo
             </a>
-            <a href="https://buy.stripe.com/28E3cvbSr1VRe0N4eT0Ny0d" target="_blank" rel="noopener noreferrer" style={{
+            <a href={JOIN_URL_CAD} target="_blank" rel="noopener noreferrer" style={{
               padding: '16px 32px',
               background: '#1A1A1A',
               color: '#fff',
