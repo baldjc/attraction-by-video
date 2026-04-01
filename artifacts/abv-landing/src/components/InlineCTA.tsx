@@ -1,5 +1,5 @@
 import React from 'react';
-import { JOIN_URL_USD } from '../lib/constants';
+import { JOIN_ANCHOR } from '../lib/constants';
 
 interface InlineCTAProps {
   light?: boolean;
@@ -20,9 +20,7 @@ export function InlineCTA({ light = true }: InlineCTAProps) {
       <p style={{ margin: 0, fontSize: '15px', color: textColor }}>
         Like what you see?{' '}
         <a
-          href={JOIN_URL_USD}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={JOIN_ANCHOR}
           style={{
             color: linkColor,
             fontWeight: 700,

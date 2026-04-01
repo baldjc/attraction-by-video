@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
-import { JOIN_URL_USD, AUDIT_URL } from '../lib/constants';
+import { JOIN_ANCHOR, AUDIT_URL } from '../lib/constants';
 
 export function ReadyToJoin() {
   const { ref, isVisible } = useInView();
@@ -66,11 +66,8 @@ export function ReadyToJoin() {
             justifyContent: 'center',
             flexWrap: 'wrap',
           }}>
-            {/* Primary filled */}
             <a
-              href={JOIN_URL_USD}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={JOIN_ANCHOR}
               style={{
                 padding: '16px 36px',
                 background: '#1A1A1A',
@@ -99,7 +96,6 @@ export function ReadyToJoin() {
               </svg>
             </a>
 
-            {/* Secondary outline */}
             <a
               href={AUDIT_URL}
               style={{

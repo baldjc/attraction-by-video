@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { JOIN_URL_USD } from '../lib/constants';
+import { JOIN_ANCHOR } from '../lib/constants';
 
 export function StickyJoinBar() {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    // Check sessionStorage for prior dismiss
     if (sessionStorage.getItem('joinBarDismissed') === '1') {
       setDismissed(true);
     }
@@ -53,7 +52,6 @@ export function StickyJoinBar() {
           flexWrap: 'wrap',
         }}
       >
-        {/* Text */}
         <p style={{
           margin: 0,
           fontSize: '14px',
@@ -67,12 +65,9 @@ export function StickyJoinBar() {
           <span>$495 USD/mo. Cancel anytime.</span>
         </p>
 
-        {/* Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
           <a
-            href={JOIN_URL_USD}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={JOIN_ANCHOR}
             style={{
               padding: '10px 24px',
               background: '#fff',
@@ -97,7 +92,6 @@ export function StickyJoinBar() {
             Join Now
           </a>
 
-          {/* Dismiss X */}
           <button
             onClick={handleDismiss}
             aria-label="Dismiss"

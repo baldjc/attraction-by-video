@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
-import { JOIN_URL_USD } from '../lib/constants';
+import { JOIN_ANCHOR } from '../lib/constants';
 
 export function Hero() {
   const { ref, isVisible } = useInView();
@@ -13,7 +13,6 @@ export function Hero() {
       <div className="container">
         <div ref={ref} className={`fade-up ${isVisible ? 'visible' : ''}`}>
 
-          {/* TOP: headline + copy centred */}
           <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 48px' }}>
             <div style={{
               display: 'inline-flex',
@@ -70,7 +69,6 @@ export function Hero() {
               Our goal: help 1,000 agents build profitable YouTube channels.
             </p>
 
-            {/* Two equal-sized buttons: filled primary + outline secondary */}
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
               <a href="#audit" style={{
                 padding: '16px 32px',
@@ -100,9 +98,7 @@ export function Hero() {
               </a>
 
               <a
-                href={JOIN_URL_USD}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={JOIN_ANCHOR}
                 style={{
                   padding: '15px 32px',
                   background: 'transparent',
@@ -133,7 +129,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* BOTTOM: full-width video */}
+          {/* Full-width video */}
           <div style={{ position: 'relative', maxWidth: '1040px', margin: '0 auto' }}>
             <div style={{
               borderRadius: '24px',
@@ -150,7 +146,6 @@ export function Hero() {
               />
             </div>
 
-            {/* Floating badge */}
             <div style={{
               position: 'absolute',
               bottom: '-20px',

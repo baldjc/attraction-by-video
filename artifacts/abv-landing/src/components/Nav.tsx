@@ -1,5 +1,5 @@
 import React from 'react';
-import { JOIN_URL_USD } from '../lib/constants';
+import { JOIN_ANCHOR } from '../lib/constants';
 
 export function Nav() {
   return (
@@ -47,7 +47,6 @@ export function Nav() {
 
         {/* Right: Members Login + Join Now + CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-          {/* Members Login — always visible, compact on mobile */}
           <a
             href="https://members.attractionbyvideo.com"
             target="_blank"
@@ -62,11 +61,9 @@ export function Nav() {
             <span className="hidden sm:inline">Members </span>Login
           </a>
 
-          {/* Join Now — outline ghost button */}
+          {/* Join Now — outline ghost button → scrolls to #join */}
           <a
-            href={JOIN_URL_USD}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={JOIN_ANCHOR}
             style={{
               border: '1.5px solid #1A1A1A',
               color: '#1A1A1A',

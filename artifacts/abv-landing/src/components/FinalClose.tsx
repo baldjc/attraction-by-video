@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
-import { JOIN_URL_USD } from '../lib/constants';
+import { JOIN_ANCHOR } from '../lib/constants';
 
 export function FinalClose() {
   const { ref, isVisible } = useInView();
@@ -25,7 +25,6 @@ export function FinalClose() {
             Keep doing what you've been doing — or build a channel that works for you while you sleep. Your future clients are searching YouTube right now.
           </p>
 
-          {/* Two buttons side by side */}
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#audit" style={{
               display: 'inline-block',
@@ -50,9 +49,7 @@ export function FinalClose() {
             </a>
 
             <a
-              href={JOIN_URL_USD}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={JOIN_ANCHOR}
               style={{
                 display: 'inline-block',
                 background: 'transparent',
