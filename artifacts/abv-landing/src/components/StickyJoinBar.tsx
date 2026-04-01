@@ -28,6 +28,7 @@ export function StickyJoinBar() {
     <div
       role="complementary"
       aria-label="Join Attraction by Video"
+      className="hidden md:block"
       style={{
         position: 'fixed',
         bottom: 0,
