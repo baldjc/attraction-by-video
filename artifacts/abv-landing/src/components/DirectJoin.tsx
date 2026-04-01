@@ -106,23 +106,6 @@ export function DirectJoin() {
               position: 'relative',
               overflow: 'hidden',
             }}>
-              {/* Popular badge */}
-              <div style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                background: 'var(--accent-azure)',
-                color: '#fff',
-                fontSize: '10px',
-                fontWeight: 700,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                padding: '4px 10px',
-                borderRadius: '100px',
-              }}>
-                Most Popular
-              </div>
-
               <div style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '12px' }}>
                 🇺🇸 USD — United States & International
               </div>
