@@ -73,7 +73,7 @@ export function FinalClose() {
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              Join Now — $495 USD/mo
+              Join Now
             </a>
           </div>
 

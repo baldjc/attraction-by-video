@@ -62,7 +62,7 @@ export function StickyJoinBar() {
         }}>
           <span style={{ color: '#fff', fontWeight: 700 }}>Join Attraction by Video</span>
           {' '}—{' '}
-          <span>$495 USD/mo. Cancel anytime.</span>
+          <span>from $495/mo. Cancel anytime.</span>
         </p>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>

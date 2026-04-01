@@ -124,7 +124,7 @@ export function Hero() {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                Join Now — $495/mo
+                Join Now
               </a>
             </div>
           </div>
