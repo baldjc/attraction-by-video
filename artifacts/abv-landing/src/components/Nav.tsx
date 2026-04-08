@@ -1,5 +1,4 @@
 import React from 'react';
-import { JOIN_ANCHOR } from '../lib/constants';
 
 export function Nav() {
   return (
@@ -59,36 +58,6 @@ export function Nav() {
             onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
           >
             <span className="hidden sm:inline">Members </span>Login
-          </a>
-
-          {/* Join Now — outline ghost button → scrolls to #join */}
-          <a
-            href={JOIN_ANCHOR}
-            style={{
-              border: '1.5px solid #1A1A1A',
-              color: '#1A1A1A',
-              borderRadius: '9999px',
-              padding: '9px 18px',
-              fontSize: '12px',
-              fontWeight: 600,
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em',
-              transition: 'all 0.25s ease',
-              textDecoration: 'none',
-              display: 'inline-block',
-              whiteSpace: 'nowrap',
-              background: 'transparent',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = '#1A1A1A';
-              e.currentTarget.style.color = '#fff';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#1A1A1A';
-            }}
-          >
-            Join Now
           </a>
 
           {/* Free Audit — filled primary */}
