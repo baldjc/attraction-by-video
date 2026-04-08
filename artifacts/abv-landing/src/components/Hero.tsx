@@ -1,6 +1,5 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
-import { JOIN_ANCHOR } from '../lib/constants';
 
 export function Hero() {
   const { ref, isVisible } = useInView();
@@ -97,35 +96,6 @@ export function Hero() {
                 </svg>
               </a>
 
-              <a
-                href={JOIN_ANCHOR}
-                style={{
-                  padding: '15px 32px',
-                  background: 'transparent',
-                  color: '#1A1A1A',
-                  border: '2px solid #1A1A1A',
-                  borderRadius: '100px',
-                  fontSize: '15px',
-                  fontWeight: 600,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  transition: 'all 0.25s ease',
-                  textDecoration: 'none',
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.background = '#1A1A1A';
-                  e.currentTarget.style.color = '#fff';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = '#1A1A1A';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                Join Now
-              </a>
             </div>
           </div>
 
