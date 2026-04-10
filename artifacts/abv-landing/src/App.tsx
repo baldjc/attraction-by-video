@@ -12,14 +12,14 @@ import { Hero } from "./components/Hero";
 import { Problem } from "./components/Problem";
 import { PlatformShowcase } from "./components/PlatformShowcase";
 import { HireAHuman } from "./components/HireAHuman";
+import { BeforeAfter } from "./components/BeforeAfter";
 import { Testimonials } from "./components/Testimonials";
 import { AboutJared } from "./components/AboutJared";
-import { BeforeAfter } from "./components/BeforeAfter";
+import { FAQ } from "./components/FAQ";
 import { AuditReportPreview } from "./components/AuditReportPreview";
 import { AuditForm } from "./components/AuditForm";
 import { DirectJoin } from "./components/DirectJoin";
 import { FinalClose } from "./components/FinalClose";
-import { ReadyToJoin } from "./components/ReadyToJoin";
 import { StickyJoinBar } from "./components/StickyJoinBar";
 import { Footer } from "./components/Footer";
 
@@ -30,18 +30,41 @@ function LandingPage() {
     <div className="w-full">
       <Nav />
       <StickyJoinBar />
+
+      {/* 1. Hook — hero with single primary CTA */}
       <Hero />
+
+      {/* 2. Empathy — establish the problem / why this matters */}
       <Problem />
+
+      {/* 3. Features — platform showcase (big feature) */}
       <PlatformShowcase />
+
+      {/* 4. Services — done-for-you tiers (feature cards) */}
       <HireAHuman />
-      <Testimonials />
+
+      {/* 5. Proof — before/after transformation */}
       <BeforeAfter />
+
+      {/* 6. Social proof — testimonials / reviews */}
+      <Testimonials />
+
+      {/* 7. Credibility — about the host */}
       <AboutJared />
+
+      {/* 8. FAQ — reduce hesitation */}
+      <FAQ />
+
+      {/* 9. Audit offer — the primary conversion path */}
       <AuditReportPreview />
       <AuditForm />
+
+      {/* 10. Direct join — for visitors ready to commit */}
       <DirectJoin />
-      <ReadyToJoin />
+
+      {/* 11. Final CTA wrap-up */}
       <FinalClose />
+
       <Footer />
     </div>
   );
