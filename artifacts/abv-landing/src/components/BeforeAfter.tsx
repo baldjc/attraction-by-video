@@ -277,22 +277,29 @@ export function BeforeAfter() {
         </div>
 
         {/* 3-COLUMN STATS */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 fade-up ${isVisible ? 'visible' : ''}`} style={{
+        <div className={`fade-up ${isVisible ? 'visible' : ''}`} style={{
           transitionDelay: '0.3s',
           borderTop: '1px solid rgba(255,255,255,0.08)',
-          paddingTop: '56px',
-          marginTop: '56px',
+          paddingTop: '48px',
+          marginTop: '48px',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '0',
         }}>
           {[
-            { stat: '68%', label: 'of everyone in your city uses YouTube to help make large financial decisions' },
-            { stat: '50%', label: 'of all purchases now involve video at some point in the journey' },
-            { stat: '34%', label: 'was this number just 4 years ago — the gap is widening fast' },
+            { stat: '68%', label: 'use YouTube to research large financial decisions' },
+            { stat: '50%', label: 'of all purchases involve video somewhere in the journey' },
+            { stat: '34%', label: 'was this same number just 4 years ago' },
           ].map(({ stat, label }, i) => (
-            <div key={i}>
-              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: '52px', color: '#fff', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+            <div key={i} style={{
+              padding: '24px 20px',
+              borderRight: i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+              textAlign: 'center',
+            }}>
+              <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(32px, 6vw, 52px)', color: '#fff', marginBottom: '8px', letterSpacing: '-0.02em', lineHeight: 1 }}>
                 {stat}
               </div>
-              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.6 }}>{label}</div>
+              <div style={{ fontSize: 'clamp(11px, 1.5vw, 13px)', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{label}</div>
             </div>
           ))}
         </div>

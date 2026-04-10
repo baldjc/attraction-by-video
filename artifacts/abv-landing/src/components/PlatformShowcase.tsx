@@ -288,16 +288,30 @@ export function PlatformShowcase() {
                 <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', marginTop: '16px' }}>Not a course dump. Real coaching, every single week.</div>
               </div>
               <div>
-                {[
-                  "Mar 27, 2026 — Hot Seat: Packaging Review — 47:22",
-                  "Mar 20, 2026 — Live Q&A: Thumbnail Fixes — 38:14",
-                  "Mar 13, 2026 — Channel Audit: Calgary Agent — 52:07",
-                  "Mar 6, 2026 — ARC Script Workshop — 44:31"
-                ].map((call, i) => (
-                  <div key={i} style={{ fontSize: '13px', padding: '12px 0', borderBottom: i < 3 ? '1px solid var(--border)' : 'none', color: 'var(--text-secondary)', display: 'flex', justifyContent: 'space-between' }}>
-                    {call.split('—').map((part, idx) => <span key={idx}>{part.trim()}</span>)}
-                  </div>
-                ))}
+                {(() => {
+                  const topics = [
+                    { topic: 'Hot Seat: Packaging Review', duration: '47:22' },
+                    { topic: 'Live Q&A: Thumbnail Fixes', duration: '38:14' },
+                    { topic: 'Channel Audit: Calgary Agent', duration: '52:07' },
+                    { topic: 'ARC Script Workshop', duration: '44:31' },
+                  ];
+                  const today = new Date();
+                  const daysBack = (today.getDay() + 7 - 5) % 7;
+                  const lastFriday = new Date(today);
+                  lastFriday.setDate(today.getDate() - daysBack);
+                  return topics.map(({ topic, duration }, i) => {
+                    const d = new Date(lastFriday);
+                    d.setDate(lastFriday.getDate() - i * 7);
+                    const label = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                    return (
+                      <div key={i} style={{ fontSize: '13px', padding: '12px 0', borderBottom: i < 3 ? '1px solid var(--border)' : 'none', color: 'var(--text-secondary)', display: 'flex', justifyContent: 'space-between', gap: '8px' }}>
+                        <span style={{ flexShrink: 0, color: 'var(--text-muted)' }}>{label}</span>
+                        <span style={{ flex: 1, textAlign: 'center' }}>{topic}</span>
+                        <span style={{ flexShrink: 0 }}>{duration}</span>
+                      </div>
+                    );
+                  });
+                })()}
               </div>
             </div>
           </div>
