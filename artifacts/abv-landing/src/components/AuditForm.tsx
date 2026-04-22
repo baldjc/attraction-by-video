@@ -156,7 +156,9 @@ export function AuditForm() {
               <input type="hidden" name="utm_campaign" value={utms.campaign} />
 
               <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="name" style={labelStyle}>Full Name</label>
+                <label htmlFor="name" style={labelStyle}>
+                  Full Name <span style={{ color: '#ff0033' }}>*</span>
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -170,7 +172,9 @@ export function AuditForm() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="email" style={labelStyle}>Email</label>
+                <label htmlFor="email" style={labelStyle}>
+                  Email <span style={{ color: '#ff0033' }}>*</span>
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -184,7 +188,9 @@ export function AuditForm() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="phone" style={labelStyle}>Cell Phone</label>
+                <label htmlFor="phone" style={labelStyle}>
+                  Cell Phone <span style={{ color: '#ff0033' }}>*</span>
+                </label>
                 <input
                   type="tel"
                   id="phone"
@@ -198,7 +204,9 @@ export function AuditForm() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="youtubeUrl" style={labelStyle}>YouTube Channel URL</label>
+                <label htmlFor="youtubeUrl" style={labelStyle}>
+                  YouTube Channel URL <span style={{ color: '#ff0033' }}>*</span>
+                </label>
                 <input
                   type="url"
                   id="youtubeUrl"
@@ -213,11 +221,13 @@ export function AuditForm() {
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="currentCommission" style={labelStyle}>Current commission from YouTube</label>
+                <label htmlFor="currentCommission" style={labelStyle}>
+                  Current commission from YouTube{' '}
+                  <span style={{ fontWeight: 400, color: 'var(--text-muted)', fontSize: '12px' }}>(optional)</span>
+                </label>
                 <select
                   id="currentCommission"
                   name="currentCommission"
-                  required
                   value={formData.currentCommission}
                   onChange={handleChange}
                   style={inputStyle}
@@ -233,11 +243,13 @@ export function AuditForm() {
               </div>
 
               <div style={{ marginBottom: '28px' }}>
-                <label htmlFor="desiredCommission" style={labelStyle}>Desired commission volume</label>
+                <label htmlFor="desiredCommission" style={labelStyle}>
+                  Desired commission volume{' '}
+                  <span style={{ fontWeight: 400, color: 'var(--text-muted)', fontSize: '12px' }}>(optional)</span>
+                </label>
                 <select
                   id="desiredCommission"
                   name="desiredCommission"
-                  required
                   value={formData.desiredCommission}
                   onChange={handleChange}
                   style={inputStyle}
