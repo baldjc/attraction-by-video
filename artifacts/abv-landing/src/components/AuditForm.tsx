@@ -56,7 +56,7 @@ export function AuditForm() {
           phone: formData.phone,
           youtube_channel_url: formData.youtubeUrl,
           Current_YouTube_Commission: formData.currentCommission,
-          desired_YouTube_Commission: formData.desiredCommission,
+          Desired_YouTube_Commission: formData.desiredCommission,
           utm_source: params.get('utm_source') || '',
           utm_medium: params.get('utm_medium') || '',
           utm_campaign: params.get('utm_campaign') || '',

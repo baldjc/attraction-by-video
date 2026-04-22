@@ -1,0 +1,49 @@
+Replit Build Prompt — Front-End Audit Form Field Fix
+Repo: baldjc/attraction-by-video (the public-facing landing page — NOT the member site)
+File: artifacts/abv-landing/src/components/AuditForm.tsx
+Scope: One-line bug fix. ~2 minutes of work.
+Risk: Very low — purely a key-name correction.
+
+The Problem
+The audit form posts to GHL with two commission fields. They're currently named inconsistently:
+tsCurrent_YouTube_Commission: formData.currentCommission,   // capital C
+desired_YouTube_Commission: formData.desiredCommission,   // lowercase d — WRONG
+This breaks the lead flow two ways:
+
+In GHL — the inconsistent casing creates confusion between desired_YouTube_Commission and Desired_YouTube_Commission custom fields. Depending on how the GHL workflow is wired, the "desired commission volume" value is landing in the wrong field or not mapping at all.
+In the member-site webhook — the backend endpoint at /api/webhooks/ghl/audit-request/route.ts specifically reads body.Desired_YouTube_Commission (capital D). So when the GHL Custom Webhook action forwards the payload to the member site, the lowercase-d version is ignored and the field comes through as null.
+
+Net effect: the desired commission field silently disappears from every lead.
+
+The Fix
+Open artifacts/abv-landing/src/components/AuditForm.tsx and change line 59 from:
+tsdesired_YouTube_Commission: formData.desiredCommission,
+To:
+tsDesired_YouTube_Commission: formData.desiredCommission,
+(Capital D, matching the pattern of Current_YouTube_Commission on the line above.)
+That's the whole change. No other files need to be touched.
+
+Verify
+After the fix, search the file to confirm there's only one esired_YouTube_Commission match and it starts with a capital D:
+bashgrep -n "esired_YouTube_Commission" artifacts/abv-landing/src/components/AuditForm.tsx
+Expected output (one line):
+59:          Desired_YouTube_Commission: formData.desiredCommission,
+
+Deploy
+
+Commit with message: fix(audit-form): correct Desired_YouTube_Commission capitalization
+Push to main
+Redeploy the landing page
+Submit a test lead through the live form and confirm in GHL that the Desired_YouTube_Commission custom field now populates correctly
+
+
+Then: Test the Full Flow
+Once this is live, run a real end-to-end test lead:
+
+Fill out the audit form on the live site with a test email
+Check GHL — contact should appear with all custom fields populated (YouTube URL, Current and Desired Commission)
+Confirm the GHL workflow fires the outbound Custom Webhook to the member site
+Check the member site admin at /admin/audits → "Audit Requests" tab — the new lead should appear as a pending audit request
+Click "Run Audit" on the new pending request and confirm the baseline audit kicks off
+
+If any step fails, the webhook activity log (once the member-site build prompt ships) will tell you exactly where the payload broke down.Progress1Audit lead magnet form → GHL → member site flow2Map channel audit availability for non-members3Verify required fields on front-end form (esp. channel URL)4Write Replit build prompt to fix lead → backend + required fields5Find and audit the landing-page repo under baldjcAttraction Tracking Site Build OutInstructions · CLAUDE.md2026-04-22-Replit-Prompt-Frontend-Form-Field-Fix.md2026-04-22-Replit-Prompt-Audit-Request-Lead-Flow-Fix.mdScratchpadContextMemoryreference_repos.md
