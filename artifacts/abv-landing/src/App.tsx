@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
 import { ThankYou } from "./pages/ThankYou";
+import { AuditLanding } from "./pages/AuditLanding";
 import { WebinarRegistration } from "./pages/WebinarRegistration";
 import { WebinarThankYou } from "./pages/WebinarThankYou";
 import { Nav } from "./components/Nav";
@@ -75,6 +76,7 @@ function Router() {
     <Switch>
       <Route path="/" component={LandingPage} />
       <Route path="/thank-you" component={ThankYou} />
+      <Route path="/audit" component={AuditLanding} />
       <Route path="/webinar-registration" component={WebinarRegistration} />
       <Route path="/webinar-thank-you" component={WebinarThankYou} />
       <Route component={NotFound} />
