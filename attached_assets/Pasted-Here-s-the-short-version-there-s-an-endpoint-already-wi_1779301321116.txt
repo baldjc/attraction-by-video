@@ -1,0 +1,54 @@
+Here's the short version — there's an endpoint already wired up for this exact use case.
+
+Yes — there's a dedicated webhook endpoint
+URL: https://members.attractionbyvideo.com/api/webhooks/ghl/audit-request?token=YOUR_SECRET
+Method: POST
+Content-Type: application/json
+
+Authentication
+A shared-secret token passed as a query string. The endpoint reads ?token=... and checks it against the GHL_WEBHOOK_SECRET environment variable on our app. If it's missing or wrong, you get a 401 Unauthorised. That secret is already set on the deployed app — you (or whoever runs the marketing site) just needs to know its value. If you'd like, I can rotate or expose it to you privately.
+
+No bearer token, no API key header, no GHL signature — just the ?token= param.
+
+Request body
+The endpoint is flexible about shape. It accepts either flat fields or a nested contact object (the way GHL's outbound webhooks structure payloads). The names it looks for:
+
+Field	Required?	Notes
+email	yes	Used for dedupe — a pending request for the same email is silently skipped.
+youtube_channel_url	yes	The channel to audit.
+full_name (or name)	no	Falls back to email if missing.
+phone	no	
+Current_YouTube_Commission	no	GCI bracket.
+Desired_YouTube_Commission	no	Target GCI.
+Minimal example:
+
+{
+  "full_name": "Jane Agent",
+  "email": "jane@example.com",
+  "phone": "+15555550100",
+  "youtube_channel_url": "https://youtube.com/@janeagent",
+  "Current_YouTube_Commission": "$0–50K",
+  "Desired_YouTube_Commission": "$100K+"
+}
+
+Responses
+200 { ok: true } — created.
+200 { ok: true, deduplicated: true } — a pending request for that email already exists; nothing new written.
+400 — bad JSON or missing email / youtube_channel_url.
+401 — missing or wrong ?token=.
+Every call (success, dedupe, reject) is logged to the WebhookLog table and viewable in the admin Webhook Logs page for debugging.
+
+What happens after the post
+A row lands in the AuditRequest table with status pending. It shows up immediately in the Lead Audits tab at /admin/audits, where an admin can click Run to kick off the AI audit. (We can also auto-run on receipt if you want zero-touch — that's a small flag change. Right now it stops at "pending" so a human reviews the URL first.)
+
+GHL auto-pull?
+No — there's no GHL tag/pipeline/workflow polling. The flow is push-only: GHL (or your marketing form, or any other system) POSTs to this endpoint. The cleanest setup is to keep your existing GHL webhook firing as it is today, and add a second outbound webhook to the URL above. Two posts, same payload, no rework on your form.
+
+Recommended setup for /audit on the marketing site
+You have two equally good options:
+
+Easiest: Add a second "Webhook" action to the same GHL automation that's already firing — point it at https://members.attractionbyvideo.com/api/webhooks/ghl/audit-request?token=.... Zero changes to the form. GHL handles the retry behaviour.
+Direct: Have the /audit form POST to both endpoints (GHL + ours) in parallel. Faster, but you lose GHL's retry safety net.
+I'd go with option 1.
+
+Let me know if you want me to (a) share the current GHL_WEBHOOK_SECRET value with you privately, (b) add an auto-run-on-receipt option so leads don't sit in pending, or (c) add an alternate authenticated endpoint (bearer header instead of query token) if your marketing form prefers that.
