@@ -202,6 +202,22 @@ export function BeforeAfter() {
             <div style={{ marginTop: '20px', fontSize: '13px', color: 'rgba(255,255,255,0.3)', lineHeight: 1.6 }}>
               Listing videos, no strategy, paid ads to boost reach. Zero inbound leads from content.
             </div>
+            <div style={{
+              marginTop: '16px',
+              padding: '14px 18px',
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+            }}>
+              <span style={{ fontSize: '20px', opacity: 0.3 }}>💰</span>
+              <div>
+                <div style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontSize: '18px', color: 'rgba(255,255,255,0.25)', lineHeight: 1.1 }}>$0 in Volume Sold</div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', marginTop: '2px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>from YouTube leads · 2017</div>
+              </div>
+            </div>
           </div>
 
           {/* AFTER */}
