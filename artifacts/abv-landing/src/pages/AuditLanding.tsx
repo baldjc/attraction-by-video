@@ -84,210 +84,230 @@ export function AuditLanding() {
   });
 
   return (
-    <div style={{
-      background: 'var(--bg-primary)',
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-    }}>
-      {/* Logo bar */}
+    <>
+      {/* Fix 2: media query forces single-column form rows on mobile */}
+      <style>{`
+        .audit-form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+          margin-bottom: 12px;
+        }
+        @media (max-width: 600px) {
+          .audit-form-row {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+
       <div style={{
-        padding: '20px 32px',
-        borderBottom: '1px solid var(--border)',
         background: 'var(--bg-primary)',
-      }}>
-        <img src="/images/abv-wordmark.png" alt="Attraction by Video" style={{ height: '40px', width: 'auto' }} />
-      </div>
-
-      {/* Main content */}
-      <div style={{
-        flex: 1,
+        minHeight: '100vh',
         display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        padding: '40px 24px 48px',
+        flexDirection: 'column',
       }}>
+        {/* Logo bar */}
         <div style={{
-          width: '100%',
-          maxWidth: '1040px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '48px',
-          alignItems: 'start',
+          padding: '20px 32px',
+          borderBottom: '1px solid var(--border)',
+          background: 'var(--bg-primary)',
+          flexShrink: 0,
         }}>
+          <img src="/images/abv-wordmark.png" alt="Attraction by Video" style={{ height: '40px', width: 'auto' }} />
+        </div>
 
-          {/* LEFT — copy + proof */}
-          <div>
-            <div style={{
-              fontSize: '10px', fontWeight: 700, textTransform: 'uppercase',
-              letterSpacing: '0.14em', color: 'var(--accent-azure)', marginBottom: '14px',
-            }}>
-              A free YouTube channel audit for real estate agents
-            </div>
+        {/* Main content — Fix 3: vertically centred within remaining height */}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '40px 24px',
+        }}>
+          <div style={{
+            width: '100%',
+            maxWidth: '1040px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '48px',
+            alignItems: 'start',
+          }}>
 
-            <h1 style={{
-              fontFamily: "'Cabinet Grotesk', sans-serif",
-              fontWeight: 900,
-              fontSize: 'clamp(26px, 3.2vw, 38px)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.025em',
-              color: 'var(--text-primary)',
-              marginBottom: '14px',
-            }}>
-              Find out exactly what's stopping your YouTube channel from bringing you leads.
-            </h1>
-
-            <p style={{
-              fontSize: '15px', color: 'var(--text-secondary)',
-              lineHeight: 1.65, marginBottom: '28px',
-            }}>
-              We score your channel against the 16 principles that turn views into real estate
-              clients, then send you a personalised report within 48 hours. No call required.
-            </p>
-
-            {/* Proof chips */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
-              {[
-                '$45M+ in real estate sold from YouTube leads in 2025',
-                'A new video every week since June 2020',
-                'The same 16-principle system 22 agents now run',
-              ].map((point, i) => (
-                <div key={i} style={{
-                  display: 'flex', alignItems: 'flex-start', gap: '9px',
-                  padding: '9px 13px',
-                  background: 'rgba(61,195,255,0.06)',
-                  border: '1px solid rgba(61,195,255,0.15)',
-                  borderRadius: '8px',
-                  fontSize: '13px', fontWeight: 500,
-                  color: 'var(--text-primary)', lineHeight: 1.4,
-                }}>
-                  <span style={{ color: 'var(--accent-azure)', flexShrink: 0 }}>✓</span>
-                  {point}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT — form */}
-          <div>
-            <div style={{
-              background: '#fff',
-              border: '1px solid var(--border)',
-              borderRadius: '18px',
-              padding: '28px',
-              boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
-            }}>
-              <p style={{
-                fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)',
-                textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '18px',
+            {/* LEFT — copy + proof */}
+            <div>
+              <div style={{
+                fontSize: '10px', fontWeight: 700, textTransform: 'uppercase',
+                letterSpacing: '0.14em', color: 'var(--accent-azure)', marginBottom: '14px',
               }}>
-                Tell us where to send your audit — takes 60 seconds.
+                A free YouTube channel audit for real estate agents
+              </div>
+
+              <h1 style={{
+                fontFamily: "'Cabinet Grotesk', sans-serif",
+                fontWeight: 900,
+                fontSize: 'clamp(26px, 3.2vw, 38px)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em',
+                color: 'var(--text-primary)',
+                marginBottom: '14px',
+              }}>
+                Find out exactly what's stopping your YouTube channel from bringing you leads.
+              </h1>
+
+              <p style={{
+                fontSize: '15px', color: 'var(--text-secondary)',
+                lineHeight: 1.65, marginBottom: '28px',
+              }}>
+                We score your channel against the 16 principles that turn views into real estate
+                clients, then send you a personalised report within 48 hours. No call required.
               </p>
 
-              <form onSubmit={handleSubmit}>
-                {/* Row 1: Name + Email */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
-                  <div>
-                    <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
-                      Full Name <span style={{ color: '#ff0033' }}>*</span>
-                    </label>
-                    <input type="text" name="name" required value={formData.name} onChange={handleChange} {...fp('name')} />
+              {/* Proof chips */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
+                {[
+                  '$45M+ in real estate sold from YouTube leads in 2025',
+                  'A new video every week since June 2020',
+                  'The same 16-principle system 22 agents now run',
+                ].map((point, i) => (
+                  <div key={i} style={{
+                    display: 'flex', alignItems: 'flex-start', gap: '9px',
+                    padding: '9px 13px',
+                    background: 'rgba(61,195,255,0.06)',
+                    border: '1px solid rgba(61,195,255,0.15)',
+                    borderRadius: '8px',
+                    fontSize: '13px', fontWeight: 500,
+                    color: 'var(--text-primary)', lineHeight: 1.4,
+                  }}>
+                    <span style={{ color: 'var(--accent-azure)', flexShrink: 0 }}>&#10003;</span>
+                    {point}
                   </div>
-                  <div>
-                    <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
-                      Email <span style={{ color: '#ff0033' }}>*</span>
-                    </label>
-                    <input type="email" name="email" required value={formData.email} onChange={handleChange} {...fp('email')} />
-                  </div>
-                </div>
-
-                {/* Row 2: Phone + YouTube URL */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
-                  <div>
-                    <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
-                      Mobile Phone <span style={{ color: '#ff0033' }}>*</span>
-                    </label>
-                    <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} {...fp('phone')} />
-                  </div>
-                  <div>
-                    <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
-                      YouTube Channel URL <span style={{ color: '#ff0033' }}>*</span>
-                    </label>
-                    <input type="url" name="youtubeUrl" required placeholder="https://youtube.com/@you" value={formData.youtubeUrl} onChange={handleChange} {...fp('youtubeUrl')} />
-                  </div>
-                </div>
-
-                {/* Row 3: GCI fields */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
-                  <div>
-                    <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
-                      Current annual GCI <span style={{ fontSize: '11px', fontWeight: 400, color: '#9ca3af' }}>(optional)</span>
-                    </label>
-                    <select name="currentCommission" value={formData.currentCommission} onChange={handleChange} {...fp('currentCommission')}>
-                      <option value="">Select...</option>
-                      <option value="$0 — haven't started">$0 — haven't started</option>
-                      <option value="Under $50K">Under $50K</option>
-                      <option value="$50-100K">$50-100K</option>
-                      <option value="$100-250K">$100-250K</option>
-                      <option value="$250K+">$250K+</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
-                      GCI goal <span style={{ fontSize: '11px', fontWeight: 400, color: '#9ca3af' }}>(optional)</span>
-                    </label>
-                    <select name="desiredCommission" value={formData.desiredCommission} onChange={handleChange} {...fp('desiredCommission')}>
-                      <option value="">Select...</option>
-                      <option value="$50-100K">$50-100K</option>
-                      <option value="$100-250K">$100-250K</option>
-                      <option value="$250K-500K">$250K-500K</option>
-                      <option value="$500K-$1M">$500K-$1M</option>
-                      <option value="$1M+">$1M+</option>
-                    </select>
-                  </div>
-                </div>
-
-                {error && (
-                  <div style={{
-                    marginBottom: '12px', padding: '10px 14px',
-                    background: 'rgba(255,0,51,0.06)', border: '1px solid rgba(255,0,51,0.2)',
-                    borderRadius: '8px', fontSize: '13px', color: 'var(--accent-crimson)',
-                  }}>{error}</div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  style={{
-                    width: '100%', padding: '14px',
-                    background: submitting ? '#666' : '#1A1A1A',
-                    color: '#fff', borderRadius: '8px',
-                    fontSize: '15px', fontWeight: 600, border: 'none',
-                    cursor: submitting ? 'not-allowed' : 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontFamily: "'Satoshi', sans-serif",
-                  }}
-                  onMouseOver={(e) => { if (!submitting) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)'; } }}
-                  onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-                >
-                  {submitting ? 'Submitting...' : 'Send Me My Free Audit'}
-                </button>
-              </form>
+                ))}
+              </div>
             </div>
 
-            {/* What happens next */}
-            <p style={{
-              marginTop: '14px', fontSize: '12px',
-              color: 'var(--text-muted)', lineHeight: 1.65,
-            }}>
-              Once you submit, we build your audit by hand. Within 48 hours you'll get a personalised
-              report scored across all 16 principles, with the three biggest gaps holding your leads back.
-              Keep an eye on your inbox.
-            </p>
-          </div>
+            {/* RIGHT — form */}
+            <div>
+              <div style={{
+                background: '#fff',
+                border: '1px solid var(--border)',
+                borderRadius: '18px',
+                padding: '28px',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
+              }}>
+                {/* Fix 1: em dash replaced with period */}
+                <p style={{
+                  fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)',
+                  textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '18px',
+                }}>
+                  Tell us where to send your audit. Takes 60 seconds.
+                </p>
 
+                <form onSubmit={handleSubmit}>
+                  {/* Row 1: Name + Email — Fix 2: uses .audit-form-row class */}
+                  <div className="audit-form-row">
+                    <div>
+                      <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
+                        Full Name <span style={{ color: '#ff0033' }}>*</span>
+                      </label>
+                      {/* Fix 4: plain text input, nothing inside */}
+                      <input type="text" name="name" required value={formData.name} onChange={handleChange} {...fp('name')} />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
+                        Email <span style={{ color: '#ff0033' }}>*</span>
+                      </label>
+                      <input type="email" name="email" required value={formData.email} onChange={handleChange} {...fp('email')} />
+                    </div>
+                  </div>
+
+                  {/* Row 2: Phone + YouTube URL */}
+                  <div className="audit-form-row">
+                    <div>
+                      <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
+                        Mobile Phone <span style={{ color: '#ff0033' }}>*</span>
+                      </label>
+                      <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} {...fp('phone')} />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
+                        YouTube Channel URL <span style={{ color: '#ff0033' }}>*</span>
+                      </label>
+                      <input type="url" name="youtubeUrl" required placeholder="https://youtube.com/@you" value={formData.youtubeUrl} onChange={handleChange} {...fp('youtubeUrl')} />
+                    </div>
+                  </div>
+
+                  {/* Row 3: GCI fields */}
+                  <div className="audit-form-row" style={{ marginBottom: '16px' }}>
+                    <div>
+                      <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
+                        Current annual GCI <span style={{ fontSize: '11px', fontWeight: 400, color: '#9ca3af' }}>(optional)</span>
+                      </label>
+                      <select name="currentCommission" value={formData.currentCommission} onChange={handleChange} {...fp('currentCommission')}>
+                        <option value="">Select...</option>
+                        <option value="$0 — haven't started">$0 — haven't started</option>
+                        <option value="Under $50K">Under $50K</option>
+                        <option value="$50-100K">$50-100K</option>
+                        <option value="$100-250K">$100-250K</option>
+                        <option value="$250K+">$250K+</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A1A', display: 'block', marginBottom: '5px' }}>
+                        GCI goal <span style={{ fontSize: '11px', fontWeight: 400, color: '#9ca3af' }}>(optional)</span>
+                      </label>
+                      <select name="desiredCommission" value={formData.desiredCommission} onChange={handleChange} {...fp('desiredCommission')}>
+                        <option value="">Select...</option>
+                        <option value="$50-100K">$50-100K</option>
+                        <option value="$100-250K">$100-250K</option>
+                        <option value="$250K-500K">$250K-500K</option>
+                        <option value="$500K-$1M">$500K-$1M</option>
+                        <option value="$1M+">$1M+</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {error && (
+                    <div style={{
+                      marginBottom: '12px', padding: '10px 14px',
+                      background: 'rgba(255,0,51,0.06)', border: '1px solid rgba(255,0,51,0.2)',
+                      borderRadius: '8px', fontSize: '13px', color: 'var(--accent-crimson)',
+                    }}>{error}</div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    style={{
+                      width: '100%', padding: '14px',
+                      background: submitting ? '#666' : '#1A1A1A',
+                      color: '#fff', borderRadius: '8px',
+                      fontSize: '15px', fontWeight: 600, border: 'none',
+                      cursor: submitting ? 'not-allowed' : 'pointer',
+                      transition: 'all 0.3s ease',
+                      fontFamily: "'Satoshi', sans-serif",
+                    }}
+                    onMouseOver={(e) => { if (!submitting) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)'; } }}
+                    onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+                  >
+                    {submitting ? 'Submitting...' : 'Send Me My Free Audit'}
+                  </button>
+                </form>
+              </div>
+
+              {/* What happens next */}
+              <p style={{
+                marginTop: '14px', fontSize: '12px',
+                color: 'var(--text-muted)', lineHeight: 1.65,
+              }}>
+                Once you submit, we build your audit by hand. Within 48 hours you'll get a personalised
+                report scored across all 16 principles, with the three biggest gaps holding your leads back.
+                Keep an eye on your inbox.
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
