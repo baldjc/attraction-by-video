@@ -6,8 +6,10 @@ import NotFound from "@/pages/not-found";
 
 import { ThankYou } from "./pages/ThankYou";
 import { AuditLanding } from "./pages/AuditLanding";
+import { AdminVideo } from "./pages/AdminVideo";
 import { WebinarRegistration } from "./pages/WebinarRegistration";
 import { WebinarThankYou } from "./pages/WebinarThankYou";
+import { VideoPlayer } from "./components/VideoPlayer";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Problem } from "./components/Problem";
@@ -34,6 +36,13 @@ function LandingPage() {
 
       {/* 1. Hook — hero with single primary CTA */}
       <Hero />
+
+      {/* 1b. VSL — auto-play video */}
+      <section style={{ background: 'var(--bg-dark)', padding: '0 24px 56px' }}>
+        <div style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <VideoPlayer unmuteLabel="Click to hear Jared" />
+        </div>
+      </section>
 
       {/* 2. Empathy — establish the problem / why this matters */}
       <Problem />
@@ -79,6 +88,7 @@ function Router() {
       <Route path="/audit" component={AuditLanding} />
       <Route path="/webinar-registration" component={WebinarRegistration} />
       <Route path="/webinar-thank-you" component={WebinarThankYou} />
+      <Route path="/admin/video" component={AdminVideo} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { VideoPlayer } from '../components/VideoPlayer';
 
 interface FormData {
   name: string;
@@ -163,7 +164,7 @@ export function AuditLanding() {
               </p>
 
               {/* Proof chips */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '7px', marginBottom: '24px' }}>
                 {[
                   '$45M+ in real estate sold from YouTube leads in 2025',
                   'A new video every week since June 2020',
@@ -183,6 +184,9 @@ export function AuditLanding() {
                   </div>
                 ))}
               </div>
+
+              {/* Video player */}
+              <VideoPlayer unmuteLabel="Click to hear Jared" />
             </div>
 
             {/* RIGHT — form */}
