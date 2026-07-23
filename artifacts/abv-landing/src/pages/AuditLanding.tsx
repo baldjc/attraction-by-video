@@ -86,7 +86,6 @@ export function AuditLanding() {
 
   return (
     <>
-      {/* Fix 2: media query forces single-column form rows on mobile */}
       <style>{`
         .audit-form-row {
           display: grid;
@@ -95,13 +94,37 @@ export function AuditLanding() {
           margin-bottom: 12px;
         }
         @media (max-width: 600px) {
-          .audit-form-row {
-            grid-template-columns: 1fr;
+          .audit-form-row { grid-template-columns: 1fr; }
+        }
+
+        /* ── No-scroll desktop layout ── */
+        @media (min-width: 900px) and (min-height: 700px) {
+          .audit-page {
+            height: 100dvh !important;
+            min-height: 0 !important;
+            overflow: hidden;
+          }
+          .audit-video-band {
+            padding: 0 24px !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+          }
+          /* Constrain video width so its 16:9 height stays ≤ 28vh */
+          .audit-video-wrap {
+            max-width: calc(28vh * 16 / 9) !important;
+          }
+          .audit-content {
+            flex: 1 !important;
+            min-height: 0 !important;
+            overflow: hidden !important;
+            padding-top: clamp(10px, 1.5vh, 20px) !important;
+            padding-bottom: clamp(10px, 1.5vh, 20px) !important;
           }
         }
       `}</style>
 
-      <div style={{
+      <div className="audit-page" style={{
         background: 'var(--bg-primary)',
         minHeight: '100vh',
         display: 'flex',
@@ -109,35 +132,35 @@ export function AuditLanding() {
       }}>
         {/* Logo bar */}
         <div style={{
-          padding: '20px 32px',
+          padding: '10px 24px',
           borderBottom: '1px solid var(--border)',
           background: 'var(--bg-primary)',
           flexShrink: 0,
         }}>
-          <img src="/images/abv-wordmark.png" alt="Attraction by Video" style={{ height: '40px', width: 'auto' }} />
+          <img src="/images/abv-wordmark.png" alt="Attraction by Video" style={{ height: '34px', width: 'auto' }} />
         </div>
 
         {/* Video — full width below logo */}
-        <div style={{ background: '#0d0d0d', padding: '20px 24px' }}>
-          <div style={{ maxWidth: '560px', margin: '0 auto' }}>
+        <div className="audit-video-band" style={{ background: '#0d0d0d', padding: '16px 24px' }}>
+          <div className="audit-video-wrap" style={{ maxWidth: '560px', margin: '0 auto', width: '100%' }}>
             <VideoPlayer slot="audit" unmuteLabel="Click to hear Jared" />
           </div>
         </div>
 
         {/* Main content */}
-        <div style={{
+        <div className="audit-content" style={{
           flex: 1,
           display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          padding: '32px 24px 40px',
+          padding: '24px 24px 32px',
         }}>
           <div style={{
             width: '100%',
             maxWidth: '1040px',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '48px',
+            gap: 'clamp(24px, 3vw, 48px)',
             alignItems: 'start',
           }}>
 
@@ -145,7 +168,7 @@ export function AuditLanding() {
             <div>
               <div style={{
                 fontSize: '10px', fontWeight: 700, textTransform: 'uppercase',
-                letterSpacing: '0.14em', color: 'var(--accent-azure)', marginBottom: '14px',
+                letterSpacing: '0.14em', color: 'var(--accent-azure)', marginBottom: '10px',
               }}>
                 A free YouTube channel audit for real estate agents
               </div>
@@ -153,25 +176,25 @@ export function AuditLanding() {
               <h1 style={{
                 fontFamily: "'Cabinet Grotesk', sans-serif",
                 fontWeight: 900,
-                fontSize: 'clamp(26px, 3.2vw, 38px)',
+                fontSize: 'clamp(22px, 2.6vw, 36px)',
                 lineHeight: 1.1,
                 letterSpacing: '-0.025em',
                 color: 'var(--text-primary)',
-                marginBottom: '14px',
+                marginBottom: '10px',
               }}>
                 Find out exactly what's stopping your YouTube channel from bringing you leads.
               </h1>
 
               <p style={{
-                fontSize: '15px', color: 'var(--text-secondary)',
-                lineHeight: 1.65, marginBottom: '28px',
+                fontSize: '14px', color: 'var(--text-secondary)',
+                lineHeight: 1.6, marginBottom: 'clamp(14px, 2vh, 22px)',
               }}>
                 We score your channel against the 16 principles that turn views into real estate
                 clients, then send you a personalised report within 48 hours. No call required.
               </p>
 
               {/* Proof chips */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '7px', marginBottom: '24px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: 'clamp(10px, 1.5vh, 18px)' }}>
                 {[
                   '$45M+ in real estate sold from YouTube leads in 2025',
                   'A new video every week since June 2020',
@@ -179,7 +202,7 @@ export function AuditLanding() {
                 ].map((point, i) => (
                   <div key={i} style={{
                     display: 'flex', alignItems: 'flex-start', gap: '9px',
-                    padding: '9px 13px',
+                    padding: '7px 11px',
                     background: 'rgba(61,195,255,0.06)',
                     border: '1px solid rgba(61,195,255,0.15)',
                     borderRadius: '8px',
@@ -200,13 +223,12 @@ export function AuditLanding() {
                 background: '#fff',
                 border: '1px solid var(--border)',
                 borderRadius: '18px',
-                padding: '28px',
+                padding: 'clamp(16px, 2vh, 24px)',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
               }}>
-                {/* Fix 1: em dash replaced with period */}
                 <p style={{
                   fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)',
-                  textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '18px',
+                  textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'clamp(10px, 1.5vh, 16px)',
                 }}>
                   Tell us where to send your audit. Takes 60 seconds.
                 </p>
@@ -303,15 +325,6 @@ export function AuditLanding() {
                 </form>
               </div>
 
-              {/* What happens next */}
-              <p style={{
-                marginTop: '14px', fontSize: '12px',
-                color: 'var(--text-muted)', lineHeight: 1.65,
-              }}>
-                Once you submit, we build your audit by hand. Within 48 hours you'll get a personalised
-                report scored across all 16 principles, with the three biggest gaps holding your leads back.
-                Keep an eye on your inbox.
-              </p>
             </div>
 
           </div>
