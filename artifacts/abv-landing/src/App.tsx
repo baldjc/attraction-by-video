@@ -40,7 +40,7 @@ function LandingPage() {
       {/* 1b. VSL — auto-play video */}
       <section style={{ background: 'var(--bg-dark)', padding: '0 24px 56px' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <VideoPlayer unmuteLabel="Click to hear Jared" />
+          <VideoPlayer slot="homepage" unmuteLabel="Click to hear Jared" />
         </div>
       </section>
 

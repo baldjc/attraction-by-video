@@ -1,31 +1,35 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 interface VideoPlayerProps {
-  /** Label shown in the unmute overlay, e.g. "Click to hear Jared" */
+  /** Which slot to play: "homepage" or "audit" */
+  slot: 'homepage' | 'audit';
+  /** Label shown in the unmute overlay */
   unmuteLabel?: string;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export function VideoPlayer({ unmuteLabel = 'Click to hear Jared', className, style }: VideoPlayerProps) {
+interface VideoConfig {
+  homepage: string | null;
+  audit: string | null;
+}
+
+export function VideoPlayer({ slot, unmuteLabel = 'Click to hear Jared', className, style }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     fetch('/api/public/video-config')
       .then(r => r.json())
-      .then((d: { objectPath: string | null }) => {
-        if (d.objectPath) {
-          setVideoUrl(`/api/storage${d.objectPath}`);
-        }
+      .then((d: VideoConfig) => {
+        setVideoUrl(d[slot] ?? null);
         setLoading(false);
       })
-      .catch(() => { setError(true); setLoading(false); });
-  }, []);
+      .catch(() => setLoading(false));
+  }, [slot]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -51,27 +55,30 @@ export function VideoPlayer({ unmuteLabel = 'Click to hear Jared', className, st
     if (!video) return;
     video.muted = false;
     setMuted(false);
-    if (!playing) {
-      video.play().then(() => setPlaying(true)).catch(() => {});
-    }
+    if (!playing) video.play().then(() => setPlaying(true)).catch(() => {});
   };
 
   if (loading) {
     return (
       <div style={{ ...wrapperStyle, ...style }} className={className}>
-        <div style={placeholderStyle}>
-          <div style={spinnerStyle} />
-        </div>
+        <div style={centreStyle}><div style={spinnerStyle} /></div>
       </div>
     );
   }
 
-  if (error || !videoUrl) {
+  if (!videoUrl) {
     return (
       <div style={{ ...wrapperStyle, ...style }} className={className}>
-        <div style={{ ...placeholderStyle, color: '#6b7280', fontSize: '14px' }}>
-          No video uploaded yet.{' '}
-          <a href="/admin/video" style={{ color: 'var(--accent-azure)' }}>Upload one →</a>
+        <div style={{ ...centreStyle, color: '#6b7280', fontSize: '13px', flexDirection: 'column', gap: '6px' }}>
+          <span>No video set for this slot yet.</span>
+          <a
+            href="https://members.attractionbyvideo.com/admin/settings"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: 'var(--accent-azure)', fontWeight: 600 }}
+          >
+            Add one in Settings →
+          </a>
         </div>
       </div>
     );
@@ -89,7 +96,6 @@ export function VideoPlayer({ unmuteLabel = 'Click to hear Jared', className, st
         style={videoStyle}
       />
 
-      {/* Muted overlay */}
       {muted && (
         <button onClick={handleUnmute} style={overlayStyle} aria-label="Unmute video">
           <div style={overlayInnerStyle}>
@@ -118,15 +124,12 @@ const videoStyle: React.CSSProperties = {
   display: 'block',
 };
 
-const placeholderStyle: React.CSSProperties = {
-  width: '100%',
-  height: '100%',
+const centreStyle: React.CSSProperties = {
   position: 'absolute',
   inset: 0,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: '#111',
 };
 
 const spinnerStyle: React.CSSProperties = {

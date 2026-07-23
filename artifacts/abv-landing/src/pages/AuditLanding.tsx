@@ -186,7 +186,7 @@ export function AuditLanding() {
               </div>
 
               {/* Video player */}
-              <VideoPlayer unmuteLabel="Click to hear Jared" />
+              <VideoPlayer slot="audit" unmuteLabel="Click to hear Jared" />
             </div>
 
             {/* RIGHT — form */}
