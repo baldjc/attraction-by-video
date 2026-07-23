@@ -97,6 +97,29 @@ export function AuditLanding() {
           .audit-form-row { grid-template-columns: 1fr; }
         }
 
+        /* ── Grid: desktop 2-col, mobile reordered ── */
+        .audit-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: clamp(16px, 2.5vw, 40px);
+        }
+        .audit-copy  { order: 1; }
+        .audit-form  { order: 2; }
+        .audit-proof { order: 3; }
+
+        @media (min-width: 700px) {
+          .audit-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+              "copy  form"
+              "proof form";
+            grid-template-rows: auto 1fr;
+          }
+          .audit-copy  { grid-area: copy; }
+          .audit-proof { grid-area: proof; align-self: start; }
+          .audit-form  { grid-area: form; }
+        }
+
         /* ── No-scroll desktop layout ── */
         @media (min-width: 900px) and (min-height: 700px) {
           .audit-page {
@@ -155,17 +178,10 @@ export function AuditLanding() {
           justifyContent: 'center',
           padding: '24px 24px 32px',
         }}>
-          <div style={{
-            width: '100%',
-            maxWidth: '1040px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: 'clamp(24px, 3vw, 48px)',
-            alignItems: 'start',
-          }}>
+          <div className="audit-grid" style={{ width: '100%', maxWidth: '1040px' }}>
 
-            {/* LEFT — copy + proof */}
-            <div>
+            {/* COPY — eyebrow + headline + subhead */}
+            <div className="audit-copy">
               <div style={{
                 fontSize: '10px', fontWeight: 700, textTransform: 'uppercase',
                 letterSpacing: '0.14em', color: 'var(--accent-azure)', marginBottom: '10px',
@@ -187,38 +203,15 @@ export function AuditLanding() {
 
               <p style={{
                 fontSize: '14px', color: 'var(--text-secondary)',
-                lineHeight: 1.6, marginBottom: 'clamp(14px, 2vh, 22px)',
+                lineHeight: 1.6, margin: 0,
               }}>
                 We score your channel against the 16 principles that turn views into real estate
                 clients, then send you a personalised report within 48 hours. No call required.
               </p>
-
-              {/* Proof chips */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: 'clamp(10px, 1.5vh, 18px)' }}>
-                {[
-                  '$45M+ in real estate sold from YouTube leads in 2025',
-                  'A new video every week since June 2020',
-                  'The same 16-principle system 22 agents now run',
-                ].map((point, i) => (
-                  <div key={i} style={{
-                    display: 'flex', alignItems: 'flex-start', gap: '9px',
-                    padding: '7px 11px',
-                    background: 'rgba(61,195,255,0.06)',
-                    border: '1px solid rgba(61,195,255,0.15)',
-                    borderRadius: '8px',
-                    fontSize: '13px', fontWeight: 500,
-                    color: 'var(--text-primary)', lineHeight: 1.4,
-                  }}>
-                    <span style={{ color: 'var(--accent-azure)', flexShrink: 0 }}>&#10003;</span>
-                    {point}
-                  </div>
-                ))}
-              </div>
-
             </div>
 
-            {/* RIGHT — form */}
-            <div>
+            {/* FORM */}
+            <div className="audit-form">
               <div style={{
                 background: '#fff',
                 border: '1px solid var(--border)',
@@ -325,6 +318,30 @@ export function AuditLanding() {
                 </form>
               </div>
 
+            </div>
+
+            {/* PROOF chips — below form on mobile, bottom-left on desktop */}
+            <div className="audit-proof">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                {[
+                  '$45M+ in real estate sold from YouTube leads in 2025',
+                  'A new video every week since June 2020',
+                  'The same 16-principle system 22 agents now run',
+                ].map((point, i) => (
+                  <div key={i} style={{
+                    display: 'flex', alignItems: 'flex-start', gap: '9px',
+                    padding: '7px 11px',
+                    background: 'rgba(61,195,255,0.06)',
+                    border: '1px solid rgba(61,195,255,0.15)',
+                    borderRadius: '8px',
+                    fontSize: '13px', fontWeight: 500,
+                    color: 'var(--text-primary)', lineHeight: 1.4,
+                  }}>
+                    <span style={{ color: 'var(--accent-azure)', flexShrink: 0 }}>&#10003;</span>
+                    {point}
+                  </div>
+                ))}
+              </div>
             </div>
 
           </div>
