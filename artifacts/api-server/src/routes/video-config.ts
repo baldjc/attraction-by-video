@@ -13,7 +13,7 @@ router.get("/public/video-config", async (_req, res) => {
     });
     if (ext.ok) {
       const data = (await ext.json()) as { homepage?: string | null; audit?: string | null };
-      res.set("Cache-Control", "public, max-age=60");
+      res.set("Cache-Control", "no-store");
       res.json({ homepage: data.homepage ?? null, audit: data.audit ?? null });
       return;
     }
@@ -21,7 +21,7 @@ router.get("/public/video-config", async (_req, res) => {
     // fall through to null response
   }
 
-  res.set("Cache-Control", "public, max-age=10");
+  res.set("Cache-Control", "no-store");
   res.json({ homepage: null, audit: null });
 });
 
