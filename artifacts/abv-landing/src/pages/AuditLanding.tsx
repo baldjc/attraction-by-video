@@ -117,13 +117,20 @@ export function AuditLanding() {
           <img src="/images/abv-wordmark.png" alt="Attraction by Video" style={{ height: '40px', width: 'auto' }} />
         </div>
 
-        {/* Main content — Fix 3: vertically centred within remaining height */}
+        {/* Video — full width below logo */}
+        <div style={{ background: '#0d0d0d', padding: '20px 24px' }}>
+          <div style={{ maxWidth: '560px', margin: '0 auto' }}>
+            <VideoPlayer slot="audit" unmuteLabel="Click to hear Jared" />
+          </div>
+        </div>
+
+        {/* Main content */}
         <div style={{
           flex: 1,
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
-          padding: '40px 24px',
+          padding: '32px 24px 40px',
         }}>
           <div style={{
             width: '100%',
@@ -185,8 +192,6 @@ export function AuditLanding() {
                 ))}
               </div>
 
-              {/* Video player */}
-              <VideoPlayer slot="audit" unmuteLabel="Click to hear Jared" />
             </div>
 
             {/* RIGHT — form */}
